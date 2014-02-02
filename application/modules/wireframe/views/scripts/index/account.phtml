@@ -1,0 +1,147 @@
+<?php $this->layout()->setLayout('account'); ?>
+<div class="int-content">
+	<div class="account-topnav"><a href="/wireframe/index/account" class="active">My Orders</a> | <a href="/wireframe/index/accountinfo">My Profile</a>
+	</div>
+	<div class="account-wrap">
+		<div class="order-sidebar rounded-corners">
+			<div class="date-top">
+				Monday 8/1
+			</div>
+			<div class="mid">
+				<form action="/order/ordertwo" method="post">
+					<table class="order-sidebar-table first">
+						<tr class="order-head">
+							<th class="col-item">Item</th>
+							<th class="col-qty">Qty</th>
+							<th class="col-cost">Cost</th>
+							<th class="col-edit"></th>
+						</tr>
+					</table>
+					<div id="scrollbar1" class="order-sidebar-wrap">
+						<div class="scrollbar">
+							<div class="track">
+								<div class="thumb">
+									<div class="end"></div>
+								</div>
+							</div>
+						</div>
+						<div class="viewport">
+							<div class="overview">
+								<table class="order-sidebar-table">
+									<tr>
+										<td colspan="4" class="date">Wednesday 5/<span>26</span></td>
+									</tr>
+									<tr>
+										<td valign="top">Appetizer</td>
+										<td valign="top" align="center">0</td>
+										<td valign="top" align="center">0</td>
+										<td valign="top" align="right"><a href="">remove</a></td>
+									</tr>
+									<tr>
+										<td valign="top">Side Dish</td>
+										<td valign="top" align="center">1</td>
+										<td valign="top" align="center">10.00</td>
+										<td valign="top" align="right"><a href="">remove</a></td>
+									</tr>
+									<tr>
+										<td valign="top">Entree</td>
+										<td valign="top" align="center">3</td>
+										<td valign="top" align="center">30.00</td>
+										<td valign="top" align="right"><a href="">remove</a></td>
+									</tr>
+									<tr>
+										<td valign="top">Dessert</td>
+										<td valign="top" align="center">3</td>
+										<td valign="top" align="center">16.00</td>
+										<td valign="top" align="right"><a href="">remove</a></td>
+									</tr>
+									<tr>
+										<td valign="top">Deliver Fee</td>
+										<td valign="top" align="center">&nbsp;</td>
+										<td valign="top" align="center">10.00</td>
+										<td valign="top" align="right">&nbsp;</td>
+									</tr>
+								</table>
+							</div>
+						</div>
+          <!--end sidebar order wrap-->
+					</div>
+					<table class="order-sidebar-table subtotal">
+						<tr class="order-head subtotal">
+							<th class="col-item">Tax</th>
+							<th class="col-qty"></th>
+							<th class="col-cost">3.00</th>
+							<th class="col-edit"></th>
+						</tr>
+						<tr>
+							<td valign="top"><strong>Total</strong></td>
+							<td valign="top"></td>
+							<td valign="top">$38.00</td>
+							<td valign="top"></td>
+						</tr>
+					</table>
+					<div class="order-submit">
+						<a href="">Cancel Policy</a>
+					</div>
+				</form>
+			</div>
+			<div class="bottom"></div>
+		</div>
+		<div class="account-right">
+			<div class="account-left">
+				<div class="order-history upcoming">
+					<h2>Upcoming Deliveries</h2>
+					<table>
+						<tr>
+							<th>Delivery Date</th>
+							<th>View Details</th>
+							<th> </th>
+						</tr>
+						<tr>
+							<td>7/8/2011</td>
+							<td><a href="">Details</a></td>
+							<td><a href="/wireframe/index/order">Edit</a></td>
+						</tr>
+						<tr>
+							<td>7/8/2011</td>
+							<td><a href="">Details</a></td>
+							<td><a href="/wireframe/index/order">Edit</a></td>
+						</tr>
+						<tr>
+							<td>7/8/2011</td>
+							<td><a href="">Details</a></td>
+							<td><a href="/wireframe/index/order">Edit</a></td>
+						</tr>
+						<tr>
+							<td>7/8/2011</td>
+							<td><a href="">Details</a></td>
+							<td><a href="/wireframe/index/order">Edit</a></td>
+						</tr>
+					</table>
+				</div>
+				<div class="order-history">
+					<h2>Order History</h2>
+					<table>
+						<tr>
+							<th>Delivery Date</th>
+							<th>View Details</th>
+						</tr>
+						<tr>
+							<td>7/8/2011</td>
+							<td><a href="/wireframe/index/accountorderdetails">View Details</a></td>
+						</tr>
+						<tr>
+							<td>6/30/2011</td>
+							<td><a href="/wireframe/index/accountorderdetails">View Details</a></td>
+						</tr>
+						<tr>
+							<td>6/30/2011</td>
+							<td><a href="/wireframe/index/accountorderdetails">View Details</a></td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</div>

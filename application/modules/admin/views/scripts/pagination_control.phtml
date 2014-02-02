@@ -1,0 +1,26 @@
+<?	if ($this->pageCount): ?>
+<div class="paginationControl">
+<!-- Previous page link -->
+<?		if (isset($this->previous)): ?>
+<span class="previous"><a href="<?= $this->url(array('page' => $this->previous)); ?>?<?=$_SERVER['QUERY_STRING']?>">&lt; Previous</a></span> |
+<?		else: ?>
+<span class="disabled">&lt; Previous</span> |
+<?		endif; ?>
+
+<!-- Numbered page links -->
+<?		foreach ($this->pagesInRange as $page): ?>
+<?			if ($page != $this->current): ?>
+<span class="pages"><a href="<?= $this->url(array('page' => $page)); ?>?<?=$_SERVER['QUERY_STRING']?>"><?= $page; ?></a></span> |
+<?			else: ?>
+<span class="current"><?= $page; ?></span> |
+<?			endif; ?>
+<?		endforeach; ?>
+
+<!-- Next page link -->
+<?		if (isset($this->next)): ?>
+<span class="next"><a href="<?= $this->url(array('page' => $this->next)); ?>?<?=$_SERVER['QUERY_STRING']?>">Next &gt;</a></span>
+<?		else: ?>
+<span class="disabled">Next &gt;</span>
+<?		endif; ?>
+</div>
+<?	endif; ?>

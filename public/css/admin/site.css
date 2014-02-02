@@ -1,0 +1,658 @@
+/* PAGE DEFAULTS */
+html, body {
+	height: 100%;
+}
+body{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+}
+TABLE, TD, P {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: normal;
+	line-height: 18px;
+	color: #000000;
+}
+em{ font-style: italic; }
+
+a{
+
+}
+a:link, a:visited, a:active{
+	text-decoration: none;
+}
+a:hover{
+	text-decoration: underline;
+}
+#page-wrap{
+
+}
+
+strong{
+	font-weight:bold;
+}
+
+#content_wrapper{
+	position: relative;
+	width: 100%;
+	margin:0 auto;
+	text-align:center;
+	/*margin-left:110px;*/
+	min-height: 100%;
+}
+
+/* HOME HEADER */
+#header{
+	width: 1165px;
+	text-align: left;
+	position: relative;
+	margin: 0 auto;
+}
+#header a.logo{
+	display: block;
+	background: url(/images/admin/logo.jpg) no-repeat;
+	width: 218px;
+	height: 68px;
+	text-indent: -2000px;
+	margin: 10px 0px 15px 39px;
+}
+#header a.logout_btn:link, #header a.logout_btn:active, #header a.logout_btn:visited, #header a.logout_btn:hover{
+	background: url(/images/admin/cny_btn_logout.jpg) no-repeat;
+	width: 89px;
+	height: 21px;
+	text-indent: -2000px;
+	position: absolute;
+	top: 0px;
+	right: 49px;
+}
+#navigation_wrapper{
+	width: 100%;
+	background: url(/images/admin/cny_nav_bg.jpg) repeat-x;
+	height: 37px;
+	display: block;
+}
+#navigation{
+	width: 1165px;
+	background: url(/images/admin/cny_nav_bg.jpg) repeat-x;
+	height: 36px;
+	display: block;
+	margin: 0px auto 0px auto;
+	text-align: left;
+}
+#navigation ul{
+	padding-left: 20px;
+	float: left;
+}
+#navigation ul li{
+	float: left;
+}
+#navigation ul li a{
+	padding: 12px 20px 10px 20px;
+	display: block;
+	background: url(/images/admin/cny_nav_bg.jpg) repeat-x;
+	color: #ffffff;
+	font-weight: bold;
+	font-size: 12px;
+}
+#navigation ul li a:hover{
+	background: url(/images/admin/cny_nav_bgrollover.jpg) repeat-x;
+	padding: 12px 20px 10px 20px;
+}
+#sub_navigation_wrapper{
+	width: 100%;
+	background: url(/images/admin/cny_belownav_bg.jpg) repeat-x;
+	height: 36px;
+	display: block;
+}
+#sub_navigation{
+	width: 1165px;
+	background: url(/images/admin/cny_belownav_bg.jpg) repeat-x;
+	height: 36px;
+	display: block;
+	margin: 0px auto 0px auto;
+	text-align: left;
+}
+#sub_navigation ul{
+	padding-left: 20px;
+	float: left;
+}
+#sub_navigation ul li{
+	float: left;
+}
+#sub_navigation ul li a{
+	display: block;
+	color: #0e2145;
+	font-size: 12px;
+	font-weight: normal;
+	text-decoration: none;
+	padding: 10px 20px 0px 20px;
+	float: left;
+}
+#sub_navigation ul li a:active, #sub_navigation ul li a:hover{
+	color: #0e2145;
+	font-size: 12px;
+	text-decoration: underline;
+	padding: 10px 20px 10px 20px;
+}
+#sub_navigation ul span{
+	display: block;
+	width: 2px;
+	float: left;
+	padding-top: 7px;
+	font-size: 16px;
+	color: #142e61;
+}
+#sub_navigation h2{
+	background: url(/images/admin/cny_logo_sitemanager.png);
+	width: 153px;
+	height: 21px;
+	display: block;
+	text-indent: -10000px;
+	float: right;
+	margin: 9px 31px 0px 0px;
+}
+/* HOME */
+#home #content_area{
+	border: 1px solid #a4a4a4;
+	background: url(/images/admin/cny_contentarea_mid.jpg) repeat-y;
+	width: 892px;
+	margin: 20px auto 0px auto;
+	text-align: left;
+	position: relative;
+	display: block;
+}
+#home #content_area #content_header{
+	background: #ffffff;
+	width: 100%;
+	display: block;
+}
+#home #content_area h2{
+	color: #ef4023;
+	font-size: 18px;
+	font-weight: bold;
+	margin: 17px 0px 0px 25px;
+	/*width: 100px;*/
+	float: left;
+}
+#home #content_area h4{
+	float: right;
+	margin: 16px 16px 0px 0px;
+	color: #737373;
+	font-size: 14px;
+	font-weight: bold;
+}
+#home #content_area #divider{
+	height: 1px;
+	display: block;
+	width: 100%;
+	background: #9a9a9a;
+	border-top: 1px solid #d3d3d3;
+	border-bottom: 1px solid #d3d3d3;
+	margin-top: 10px;
+	font-size: 1px;
+	float: left;
+}
+#home #content_area #leftbox{
+	float: left;
+	width: 475px;
+	margin: 17px 0px 0px 25px;
+}
+#home #content_area #leftbox p{
+	margin: 20px 0px 0px 0px;
+	color: #737373;
+	font-size: 14px;
+}
+a.linkblue:link, a.linkblue:active, a.linkblue:visited{
+	text-decoration: none;
+	color: #0b3762;
+}
+a.linkblue:hover{
+	text-decoration: underline;
+	color: #0b3762;
+}
+#home #content_area #leftbox h3{
+	font-size: 18px;
+	color: #0b3762;
+	width: 400px;
+}
+#home #content_area #rightbox{
+	float: right;
+	width: 243px;
+}
+#home #content_area #rightbox ul{
+	font-size: 13px;
+	float: left;
+	list-style-type: none;
+	padding: 17px 0px 30px 0px;
+	margin-left: 2em;
+}
+#home #content_area #rightbox a{
+	color: #1b446c;
+	font-weight: bold;
+	font-size: 16px;
+}
+#home #content_area #rightbox ul li{ margin-bottom: 10px; }
+#home #content_area #rightbox ul li#manager1{
+	background: url(/images/admin/cny_nav_icon_manager1.gif) no-repeat;
+	height: 36px;
+	padding: 7px 0px 0px 40px;
+}
+#home #content_area #rightbox ul li#manager2{
+	background: url(/images/admin/cny_nav_icon_manager2.gif) no-repeat;
+	height: 36px;
+	padding: 7px 0px 0px 40px;
+}
+#home #content_area #rightbox ul li#contentmanager{
+	background: url(/images/admin/cny_nav_icon_contentmanager.gif) no-repeat;
+	height: 36px;
+	padding: 7px 0px 0px 40px;
+}
+#home #content_area #rightbox ul li#accountsettings{
+	background: url(/images/admin/cny_nav_icon_accountsettings.gif) no-repeat;
+	height: 32px;
+	padding: 7px 0px 0px 40px;
+}
+#home #content_area #rightbox ul li#help{
+	background: url(/images/admin/cny_nav_icon_help.gif) no-repeat;
+	height: 35px;
+	padding: 7px 0px 0px 40px;
+}
+#home #content_area #rightbox ul li#logout{
+	background: url(/images/admin/cny_nav_icon_logout.gif) no-repeat;
+	height: 31px;
+	padding: 7px 0px 0px 40px;
+}
+#home #content_area #bottom{
+	background: url(/images/admin/cny_contentarea_bottom.jpg) no-repeat;
+	width: 892px;
+	height: 47px;
+	position: absolute;
+	bottom: 0px;
+}
+#home #cms_date {
+	display: none;
+}
+/* END HOME */
+
+#manager #content_area{
+	width: 805px;
+	margin: 0px auto 0px auto;
+	text-align: left;
+	position: relative;
+	display: block;
+}
+#manager #content_area #content_header{
+	background: #ffffff;
+	width: 100%;
+	display: block;
+}
+#manager h4{
+	color:#142e61;
+	font-size: 12px;
+	display: block;
+	width:1165px;
+	margin: 14px auto 0px auto;
+	text-align: right;
+}
+#manager h4 span{
+	display: block;
+	margin-right: 30px;
+}
+#manager #content_area h2{
+	color: #0b3762;
+	font-size: 18px;
+	font-weight: bold;
+	margin: 17px 0px 0px 0px;
+	width: 400px;
+	float: left;
+}
+#manager #search_wrapper{
+	background: #e2e5eb;
+	height: 120px;
+	width: 100%;
+	float: left;
+	margin-top: 10px;
+}
+#manager #search_wrapper #searchcopy{
+	margin: 0px 0px 0px 45px;
+}
+#manager #search_wrapper #searchcopy label{
+	margin: 0px 5px 0px 0px;
+	display: block;
+	float: left;
+}
+#manager #search_wrapper #searchcopy input{
+	margin: 0px 0px 0px 0px;
+	display: block;
+	float: left;
+	width: 100px;
+}
+
+#manager #search_wrapper #searchcopy select{
+	margin: 0px 15px 0px 5px;
+	display: block;
+	float: left;
+	width: 136px;
+}
+#manager #search_wrapper #searchcopy img{
+	display: block;
+	float: left;
+	margin: 0px 15px 0px 2px;
+}
+#manager #search_wrapper #searchcopy p.row1{
+	display: block;
+	margin: 35px 0px 0px 0px;
+	float: left;
+}
+#manager #search_wrapper #searchcopy p.row2{
+	display: block;
+	margin: 20px 0px 0px 0px;
+	float: left;
+}
+#manager #search_wrapper #searchcopy p.row2 label{
+	margin: 2px 0px 0px 0px;
+}
+#manager #search_wrapper #searchcopy p.row2 select{
+	margin-top: 1px;
+}
+#manager #search_wrapper #searchcopy p.row2 input.exportcheck{
+	margin: 4px 5px 0px 0px;
+}
+#manager #results_wrapper .datatable tfoot select{ width: 100px; font-size: 12px; margin: 20px 10px 10px 10px; float: left;}
+#manager #search_wrapper #searchcopy input.submit_btn, #manager #results_wrapper .datatable input.submit_btn{
+	background: url(/images/admin/cny_btn_submit_bg.jpg) no-repeat;
+	width: 88px;
+	height: 21px;
+	border: 0px;
+	margin: 0px 5px 0px 0px;
+	color: #3a3a3a;
+	font-size: 12px;
+}
+#manager #results_wrapper .datatable input.submit_btn{ margin-top: 19px;}
+#manager #search_wrapper input.padded{
+	border:1px solid black;
+}
+#manager #results_wrapper{
+	width: 100%;
+	margin-top: 10px;
+	clear: left;
+	float: left;
+}
+#manager  #content_area .datatable{
+	margin: 10px 0px 0px 0px;
+}
+#manager  #content_area .datatable table{
+	width: 100%;
+}
+#manager  #content_area .datatable table, #manager  #content_area .datatable tr, #manager  #content_area .datatable td{
+	font-size: 13px;
+	height: 35px;
+}
+#manager #content_area .datatable td a.blue:link, #manager #content_area .datatable td a.blue:visited, #manager #content_area .datatable td a.blue:active{ color: #0037eb; }
+#manager #content_area .datatable td a.blue:hover{ color: #000000; }
+#manager #content_area .datatable td a.btn_view{
+	display: block;
+	width: 12px;
+	height: 17px;
+	background: url(/images/admin/cny_btn_view.png) no-repeat;
+	text-indent: -2000px;
+	margin-left: 10px;
+}
+#manager #content_area .datatable td a.btn_edit{
+	display: block;
+	width: 16px;
+	height: 17px;
+	background: url(/images/admin/cny_btn_edit.png) no-repeat;
+	text-indent: -2000px;
+	margin-left: 5px;
+}
+#manager #content_area .datatable td a.btn_delete{
+	display: block;
+	width: 13px;
+	height: 17px;
+	background: url(/images/admin/cny_btn_delete.png) no-repeat;
+	text-indent: -2000px;
+	margin-left: 10px;
+}
+#manager  #content_area .datatable table tr.header{
+	color: #ffffff;
+	background: #526588;
+	height: 25px;
+	font-weight: bold;
+	font-size: 13px;
+}
+#manager  #content_area .datatable table tr.header a:link, #manager  #content_area .datatable table tr.header a:active, #manager  #content_area .datatable table tr.header a:visited{
+	color: #ffffff;
+	text-decoration: underline;
+	font-weight: bold;
+}
+#manager  #content_area .datatable table tr.header a:hover{
+	text-decoration: none;
+}
+#manager  #content_area .datatable input.checkbox{ margin: 5px 0px 0px 10px;}
+#manager  #content_area .datatable tr.shadeoff{ background: #ffffff; }
+#manager  #content_area .datatable tr.shadeon{ background: #e2e5eb; }
+#manager  #content_area .datatable tr.shadethis{ background: #FFCC99; }
+
+#manager .first, #manager .firstrow {
+	padding-left: 10px;
+}
+/* END MANAGER */
+
+/* DETAIL VIEW */
+
+#detailview #content_area{
+	width: 805px;
+	margin: 0px auto 0px auto;
+	text-align: left;
+	position: relative;
+	display: block;
+}
+
+#detailview h4{
+	color:#142e61;
+	font-size: 12px;
+	display: block;
+	width:1165px;
+	margin: 14px auto 0px auto;
+	text-align: right;
+}
+#detailview h4 span{
+	display: block;
+	margin-right: 30px;
+}
+#detailview #content_area h2{
+	color: #0b3762;
+	font-size: 18px;
+	font-weight: bold;
+	margin: 17px 0px 0px 0px;
+	width: 400px;
+	float: left;
+}
+#detailview #content_area ul.navigation{ float: right; margin: 17px 0px 0px 0px;}
+#detailview #content_area ul.navigation li{ float: left; margin-left: 9px;}
+#detailview #content_area ul.navigation li a{ text-indent: -2000px; }
+#detailview #content_area ul.navigation li a.btn_back:link, #detailview #content_area ul.navigation li a.btn_back:active, #detailview #content_area ul.navigation li a.btn_back:visited{
+	background: url(/images/admin/cny_detail_btn_back.jpg) no-repeat 0 -21px;
+	display: block;
+	width: 89px;
+	height: 21px;
+}
+#detailview #content_area ul.navigation li a.btn_back:hover{ background: url(/images/admin/cny_detail_btn_back.jpg) no-repeat 0 0; }
+#detailview #content_area ul.navigation li a.btn_export:link, #detailview #content_area ul.navigation li a.btn_export:active, #detailview #content_area ul.navigation li a.btn_export:visited{
+	background: url(/images/admin/cny_detail_btn_export.jpg) no-repeat 0 -21px;
+	display: block;
+	width: 89px;
+	height: 21px;
+}
+#detailview #content_area ul.navigation li a.btn_export:hover{ background: url(/images/admin/cny_detail_btn_export.jpg) no-repeat 0 0; }
+
+#detailview #content_area .datatable{
+	margin: 10px 0px 0px 0px;
+	float: left;
+	width: 100%;
+}
+#detailview #content_area .datatable table{
+	width: 100%;
+	border: 1px solid #a4a4a4;
+}
+#detailview #content_area .datatable table, #detailview #content_area .datatable tr, #detailview #content_area .datatable td{
+	font-size: 13px;
+	height: 30px;
+	padding-left: 10px;
+}
+#detailview #content_area .datatable .last {
+	padding-right: 10px;
+}
+#detailview #content_area .datatable table tr.header{
+	color: #ffffff;
+	background: #526588;
+	height: 25px;
+}
+#detailview #content_area .datatable table th{
+	padding-left: 10px;
+}
+#detailview #content_area .datatable table tr.footer{
+	background: url(/images/admin/cny_detail_dt_footer_bg.jpg) no-repeat;
+	color: #ffffff;
+	height: 35px;
+	width: 100%;
+}
+#detailview #content_area .datatable td a.btn_edit{
+	display: block;
+	width: 16px;
+	height: 17px;
+	background: url(/images/admin/cny_btn_edit.png) no-repeat;
+	text-indent: -2000px;
+	margin-left: 5px;
+}
+#detailview #content_area .datatable td a.btn_delete{
+	display: block;
+	width: 13px;
+	height: 17px;
+	background: url(/images/admin/cny_btn_delete.png) no-repeat;
+	text-indent: -2000px;
+	margin-left: 10px;
+}
+#detailview #content_area .datatable tr.shadeoff{ background: #ffffff; }
+#detailview #content_area .datatable tr.shadeon{ background: #e2e5eb; }
+
+/* END DETAIL VIEW */
+
+/* LOGIN */
+body#login {
+	background: url(/images/admin/cny_login_bg.jpg) no-repeat #0b3762;
+}
+#login #content_wrapper{
+	padding-top: 0px;
+	padding-bottom: 0px;
+}
+#login_wrapper{
+	background: transparent;
+	width: 441px;
+	margin: 0 auto;
+	display: block;
+}
+#login_content{
+	background: url(/images/admin/cny_login_wrapper_bg.png) no-repeat;
+	width: 441px;
+	height: 360px;
+	float: left;
+	margin-top: 100px;
+}
+#login h2{
+	background: url(/images/admin/cny_login_logo.jpg) no-repeat;
+	height: 26px;
+	width: 223px;
+	display: block;
+	text-indent: -2000px;
+	margin: 27px 0px 0px 105px;
+}
+#login h3{
+	text-align: left;
+	margin: 25px 0px 10px 50px;
+	font-size: 17px;
+	font-weight: bold;
+	color: #333333;
+}
+#login label{
+	display: block;
+	float: left;
+	margin: 10px 0px 0px 50px;
+	color: #333333;
+	font-size: 14px;
+}
+#login input{
+	float: left;
+	margin: 5px 0px 0px 50px;
+	height: 20px;
+	width: 335px;
+}
+#login input.btn_login{
+	background: url(/images/admin/cny_btn_login_submit.gif) no-repeat;
+	width: 50px;
+	height: 18px;
+	display: block;
+	border: 0px;
+	margin: 20px 0px 0px 50px;
+}
+#login span{
+	float: left;
+	margin: 21px 0px 0px 5px;
+}
+#login a:link, #login a:active, #login a:visited{
+	color: #0b3762;
+	text-decoration: underline;
+}
+#login a:hover{
+	color: #0b3762;
+	text-decoration: none;
+}
+/* END LOGIN */
+#footer_wrapper{
+	background: url(/images/admin/cny_footer_bg_repeat.jpg) repeat-x;
+	float: left;
+	width: 100%;
+	/*position: absolute;*/
+	left: 0px;
+	bottom: 0px;
+}
+#footer{
+	background: url(/images/admin/cny_footer_bg.jpg) no-repeat;
+	/*width: 1165px;*/
+	height: 77px;
+	display: block;
+	margin: 0px auto 0px auto;
+}
+#footer p{
+	color: #ffffff;
+	margin: 18px 15px 0px 17px;
+	font-size: 10px;
+}
+#footer p.powered{	float: left; }
+#footer p.version{ float: right; }
+
+/* PAGINATION */
+.paginationControl {
+	padding-top: 10px;
+}
+/* END PAGINATION */
+
+/* USER FORM */
+#userForm label {
+	width: 100px;
+	float: left;
+}
+.red{
+        color: #FD0606;
+        font-size: 13px;
+        font-weight: bold;
+        text-decoration: none;
+}
+/* END USER FORM */
+
+/* Fixes for TinyMCE */
+#detailview #content_area .datatable table.mceLayout { width: auto; padding: 0; }
+#detailview #content_area .datatable table.mceLayout table { width: auto; padding: 0; border: 0; }
+#detailview #content_area .datatable table.mceLayout td { padding: 0; }
+/* End Fixes for TinyMCE */

@@ -1,0 +1,129 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>A Table</title>
+		<link type="text/css" rel="stylesheet" href="/css/reset-fonts-grids.css"/>
+		<link type="text/css" href="/css/jquery-ui-1.8.14.custom.css" rel="stylesheet" />	
+		<link rel="stylesheet" type="text/css" href="/css/superfish.css" media="screen">
+		<style type="text/css" media="all">
+			@import "/css/jtip.css";
+		</style>
+		<link type="text/css" rel="stylesheet" href="/css/wf-styles.css"/>
+<!--[if IE 6]>
+<link type="text/css" rel="stylesheet" href="/css/wf-ie6.css"/>
+<![endif]-->
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.js"></script>
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.13/jquery-ui.js"></script>
+		<script type="text/javascript" src="/js/jquery-1.2.6.min.js"></script>
+		<script type="text/javascript" src="/js/hoverIntent.js"></script>
+		<script type="text/javascript" src="/js/superfish.js"></script>
+		<script type="text/javascript" src="/js/codapop.js"></script>
+		<script type="text/javascript">
+
+		// initialise plugins
+		jQuery(function(){
+			jQuery('ul.sf-menu').superfish();
+		});
+
+		</script>
+		<script src="/js/jtip.js" type="text/javascript"></script>
+		<script type="text/javascript" src="/js/jquery.cycle.all.latest.js"></script>
+<!--[if IE]>
+.rounded-corners {
+  behavior: url(border-radius.htc);
+}
+<![endif]-->
+		<script type="text/javascript">
+			var jTipTimeout;			//Stores the setTimeout for the delayed tooltip.
+			var jTipTimeDelay = 3000;
+			natDays = [];
+			function nationalDays(date) {
+			for (i = 0; i < natDays.length; i++) {
+                        if (date.getMonth() == natDays[i][0] - 1
+                        && date.getDate() == natDays[i][1]) {
+                                return [false, natDays[i][2] + '_day'];
+                        }
+                }
+                return [true, ''];
+        }
+
+        function noWeekendsOrHolidays(date) {
+                var noWeekend = $.datepicker.noWeekends(date);
+                if (noWeekend[0]) {
+                        return nationalDays(date);
+                } else {
+                        return noWeekend;
+                }
+        }
+
+
+        $(function() {
+                $("#datepicker").datepicker({
+			showOn: "button",
+			buttonImage: "/images/calendar.gif",
+			buttonImageOnly: true,
+                        minDate: +2,
+						maxDate: "+14D",
+                        hideIfNoPrevNext: true,
+                        beforeShowDay: $.datepicker.noWeekends,
+                        altField: '#alternate',
+                });
+        });
+
+$(document).ready(function() {
+    $('.slideshow').cycle({
+		fx: 'fade' // choose your transition type, ex: fade, scrollUp, shuffle, etc...
+	});
+});
+		</script>
+	</head>
+	<body class="account">
+		<div id="outer-wrap">
+			<div id="page-wrap">
+				<div id="hd">
+					<div id="hd-inner">
+						<div id="logo"><a href="/wireframe/index/index">A Tabl&eacute;   NYC</a></div>
+						<div id="nav">
+							<ul class="sf-menu"> 
+								<li id="nav-order"><a href="/wireframe/index/order">Order</a>
+									<ul>
+										<li id="nav-fastorder"><a href="/wireframe/index/fastorder">Fast Order</a></li> 
+										<li id="nav-fullmenu"><a href="/wireframe/index/order">Full Menu</a></li> 
+									</ul>
+								</li>
+								<li id="nav-offer"><a href="/wireframe/index/offer">What We Offer</a></li>
+								<li id="nav-how"><a href="">How A Table Works</a></li>
+							</ul>
+						</div>
+						<div id="account-links">
+							<ul > 
+								<li id="nav-account"><a href="/wireframe/index/accountlogin">My Account</a></li>
+								<li id="nav-contact">212.123.4567</li>
+								<li id="nav-contact"><a href="">Email Us</a></li>
+							</ul>
+							<div class="eat-at-home">Eat at Home</div>
+						</div>
+						<div id="tagline"><a href="/wireframe/index/index">Eat @ Home</a></div>
+					</div>
+				</div>
+				<div id="page-content"  >
+		 			<?=$this->layout()->content?>
+				</div>
+			</div>
+			<div id="ft-outer">
+				<div id="ft-wrap">
+					<ul>
+						<li id="ftnav-contact"><a href="">Contact</a></li>
+						<li id="ftnav-about"><a href="">About Us</a></li>
+						<li id="ftnav-about"><a href="">Privacy Policy</a></li>
+					</ul>
+				</div>
+				<div class="copyright">
+					<div class="ft-logo"></div>
+					&copy; Copyright <?php echo date('Y'); ?>, A Tabl&eacute; NYC
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

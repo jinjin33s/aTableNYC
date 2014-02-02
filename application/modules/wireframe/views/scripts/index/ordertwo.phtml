@@ -1,0 +1,205 @@
+<?php $this->layout()->setLayout('order'); ?>
+<div id="order-steps" class="step-two">
+	<ul>
+		<li id="menu-step-one">Step 1. Select Dishes</li>
+		<li id="menu-step-two">Step 2. Check Out</li>
+		<li id="menu-step-three">Step 3. Confirm Order</li>
+	</ul>
+</div>
+<div class="int-content">
+	<div class="menu-head">
+		<h1>Check Out</h1>
+	</div>
+	<div class="checkout-wrap">
+		<div class="login">
+			<form action="/wireframe/index/orderthree" method="post">
+				<h1>Login to your account:</h1>
+				<div class="row"><label>Email Address:</label> <input type="text"></div>
+				<div class="row"><label>Password:</label> <input type="password"></div>
+				<div class="row"><a href="/wireframe/index/forgotpassword">Forgot your password?</a></div>
+				<div class="row submit-row">  <input type="submit" value="Checkout"></div>
+			</form>
+		</div>
+		<div class="guest">
+			<form action="/wireframe/index/orderthree" method="post">
+				<h1>Checkout as a guest:</h1>
+				<h2>Delivery Information</h2>
+				<div class="row"><label>Name:</label> <input type="text"></div>
+				<div class="row"><label>Address 1:</label> <input type="text"></div>
+				<div class="row"><label>Address 2:</label> <input type="text"></div>
+				<div class="row">
+					<div class="city inline-fields"><label>City:</label> <input type="text"></div>
+					<select name="state" size="1">
+	<option value="AK">AK</option>
+	<option value="AL">AL</option>
+	<option value="AR">AR</option>
+	<option value="AZ">AZ</option>
+	<option value="CA">CA</option>
+	<option value="CO">CO</option>
+	<option value="CT">CT</option>
+	<option value="DC">DC</option>
+	<option value="DE">DE</option>
+	<option value="FL">FL</option>
+	<option value="GA">GA</option>
+	<option value="HI">HI</option>
+	<option value="IA">IA</option>
+	<option value="ID">ID</option>
+	<option value="IL">IL</option>
+	<option value="IN">IN</option>
+	<option value="KS">KS</option>
+	<option value="KY">KY</option>
+	<option value="LA">LA</option>
+	<option value="MA">MA</option>
+	<option value="MD">MD</option>
+	<option value="ME">ME</option>
+	<option value="MI">MI</option>
+	<option value="MN">MN</option>
+	<option value="MO">MO</option>
+	<option value="MS">MS</option>
+	<option value="MT">MT</option>
+	<option value="NC">NC</option>
+	<option value="ND">ND</option>
+	<option value="NE">NE</option>
+	<option value="NH">NH</option>
+	<option value="NJ">NJ</option>
+	<option value="NM">NM</option>
+	<option value="NV">NV</option>
+	<option value="NY">NY</option>
+	<option value="OH">OH</option>
+	<option value="OK">OK</option>
+	<option value="OR">OR</option>
+	<option value="PA">PA</option>
+	<option value="RI">RI</option>
+	<option value="SC">SC</option>
+	<option value="SD">SD</option>
+	<option value="TN">TN</option>
+	<option value="TX">TX</option>
+	<option value="UT">UT</option>
+	<option value="VA">VA</option>
+	<option value="VT">VT</option>
+	<option value="WA">WA</option>
+	<option value="WI">WI</option>
+	<option value="WV">WV</option>
+	<option value="WY">WY</option>
+</select>
+					<div class="zip  inline-fields"><label>Zip:</label> <input type="text"></div>
+				</div>
+				<h2>Contact Information</h2>
+				<div class="row"><label>Telephone:</label> <input type="text"></div>
+				<div class="row"><label>Email:</label> <input type="text" value="returningcustomer@email.com"></div>
+				<h2>Payment Information</h2>
+				<div class="row checkbox-row">  <input type="checkbox" class="checkbox"> Use delivery address</div>
+				<div class="row"><label>Credit Card:</label> <input type="text"></div>
+				<div class="row"><label> </label>
+					<select><option>Month</option><option>01</option><option>02</option><option>03</option><option>04</option><option>05</option><option>06</option><option>07</option><option>08</option><option>09</option><option>10</option><option>11</option><option>12</option></select>
+					<select><option>Year</option><option>11</option><option>12</option><option>13</option><option>14</option><option>15</option></select>
+					<div class="cvv  inline-fields"><label>CVV:</label> <input type="text"></div>
+				</div>
+				<div class="row"><label>Name:</label> <input type="text"></div>
+				<div class="row"><label>Name:</label> <input type="text"></div>
+				<div class="row"><label>Address 1:</label> <input type="text"></div>
+				<div class="row"><label>Address 2:</label> <input type="text"></div>
+				<div class="row">
+					<div class="city inline-fields"><label>City:</label> <input type="text"></div>
+					<select name="state" size="1">
+	<option value="AK">AK</option>
+	<option value="AL">AL</option>
+	<option value="AR">AR</option>
+	<option value="AZ">AZ</option>
+	<option value="CA">CA</option>
+	<option value="CO">CO</option>
+	<option value="CT">CT</option>
+	<option value="DC">DC</option>
+	<option value="DE">DE</option>
+	<option value="FL">FL</option>
+	<option value="GA">GA</option>
+	<option value="HI">HI</option>
+	<option value="IA">IA</option>
+	<option value="ID">ID</option>
+	<option value="IL">IL</option>
+	<option value="IN">IN</option>
+	<option value="KS">KS</option>
+	<option value="KY">KY</option>
+	<option value="LA">LA</option>
+	<option value="MA">MA</option>
+	<option value="MD">MD</option>
+	<option value="ME">ME</option>
+	<option value="MI">MI</option>
+	<option value="MN">MN</option>
+	<option value="MO">MO</option>
+	<option value="MS">MS</option>
+	<option value="MT">MT</option>
+	<option value="NC">NC</option>
+	<option value="ND">ND</option>
+	<option value="NE">NE</option>
+	<option value="NH">NH</option>
+	<option value="NJ">NJ</option>
+	<option value="NM">NM</option>
+	<option value="NV">NV</option>
+	<option value="NY">NY</option>
+	<option value="OH">OH</option>
+	<option value="OK">OK</option>
+	<option value="OR">OR</option>
+	<option value="PA">PA</option>
+	<option value="RI">RI</option>
+	<option value="SC">SC</option>
+	<option value="SD">SD</option>
+	<option value="TN">TN</option>
+	<option value="TX">TX</option>
+	<option value="UT">UT</option>
+	<option value="VA">VA</option>
+	<option value="VT">VT</option>
+	<option value="WA">WA</option>
+	<option value="WI">WI</option>
+	<option value="WV">WV</option>
+	<option value="WY">WY</option>
+</select>
+					<div class="zip  inline-fields"><label>Zip:</label> <input type="text"></div>
+				</div>
+				<div class="row checkbox-row">  <input type="checkbox" class="checkbox"> Save my account information for future orders</div>
+				<div class="row checkbox-row">  <input type="checkbox" class="checkbox"> I accept the terms and conditions</div>
+				<div class="row submit-row">  <input type="submit" value="Checkout"></div>
+			</form>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+	$(document).ready(function(){
+	$(".radio").removeAttr("checked");
+	$(".qty").val("1");
+	$(".radio").bind("click",onOff);
+	$(".add").click(add);
+	$(".minus").click(minus);
+	});
+	function onOff() {
+	if ($(this).attr("checked") == "checked") {
+	$(this).parent().prepend('
+	<div class="qty-wrap">
+		<input type="button" value="+" class="add" />
+		<input type="text" length="3" value="1" class="quantity qty" name="qty">
+		<input type="button" value="-" class="minus" />
+	</div>');
+	$(this).parent().find(".add").bind("click",add);
+	$(this).parent().find(".minus").bind("click",minus);
+	$(this).remove();
+	}
+	}
+	function add() {
+	var currentVal = parseInt($(this).next(".qty").val());
+	if (currentVal != NaN) {
+	$(this).next(".qty").val(currentVal + 1);
+	}
+	}
+	function minus() {
+	var currentVal = parseInt($(this).prev(".qty").val());
+	if (currentVal != NaN) {
+	$(this).prev(".qty").val(currentVal - 1);
+	}
+	if ($(this).parent().find(".qty").val() <= 0) {
+		$(this).parent().parent().prepend('<input type="radio" class="radio">');
+		$(this).parent().parent().find(".radio").bind("click",onOff);
+
+		$(this).parent().parent().find(".qty-wrap").remove();
+	}
+}
+</script>

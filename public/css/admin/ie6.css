@@ -1,0 +1,13 @@
+#sub_navigation h2{ margin: 7px 15px 0px 0px; }
+#home #content_area h2{ margin: 17px 0px 0px 12px; }
+#home #content_area h4{ margin: 16px 8px 0px 0px; }
+#home #content_area #leftbox{ margin: 17px 0px 0px 12px; }
+#footer p{ margin: 18px 7px 0px 8px; }
+#manager h4{ margin: 14px 0px 0px 0px; }
+#login label{ margin: 10px 0px 0px 25px; }
+#login input{ margin: 5px 0px 0px 50px; }
+#login input.btn_login{ margin: 20px 0px 0px 25px; }
+#footer_wrapper
+{
+top: expression((document.body.offsetHeight - 77) + "px");
+}

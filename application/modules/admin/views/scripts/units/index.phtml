@@ -1,0 +1,96 @@
+<script type="text/javascript">
+    
+    function jin() {
+        
+        var inputElements = document.getElementsByTagName("input");
+        
+        for (var i=0; i < inputElements.length; i++) {
+            if (inputElements[i].type == 'text') {
+                inputElements[i].value = '';
+                }
+            }
+            var x = document.getElementById('status')      
+            x.value = ''; 
+            
+            document.foo.submit();
+    }
+
+
+</script>
+<?php
+if ($this->dir == "DESC") $dir = "ASC"; else $dir = "DESC";
+?>
+
+<h2>Unit Manager</h2>
+<div style="clear: both;"></div>
+<div align="right"><a href="/admin/units/add">Add a Unit</a></div>
+<div id="search_wrapper">
+	<div id="searchcopy">
+		<form method="post" name="foo" action="">
+			<p class="row1">
+				<label>Search:</label><input type="text" name="mask" style="margin-right: 18px; width: 180px;" value="<?=$this->mask?>">
+				<label>Status:</label>
+				<?=$this->formSelect('status', $this->status, array('id'=>'status'), array(""=>"View All Statuses")+$this->statuses)?>
+                                <input type="submit" class="submit_btn" value="Search">
+				<input type="checkbox" name="csv" value="1" class="exportcheck" style="width: 15px;"><label>Export</label>
+                        </p>
+                        </br></br></br></br></br>
+                        <input type="button" value="View All" onClick="jin()" />
+			<div style="clear: both;"></div>
+			
+		</form>
+	</div>
+</div>
+
+<div style="clear: both;"></div>
+<?php echo $this->paginationControl($this->list, 'Sliding', 'pagination_control.phtml'); ?>
+
+<div id="results_wrapper">
+	<div class="datatable">
+		<table>
+			<thead>
+				<tr class="header">
+					<th class="first"><a href="/admin/units/index/sort/name/dir/<?=$dir?>">UOM Name</a></th>					
+					<th><a href="/admin/units/index/sort/status/dir/<?=$dir?>">Format</a></th>
+                                        <th><a href="/admin/units/index/sort/status/dir/<?=$dir?>">Symbol</a></th>
+					<th>View</th>
+					<th>Edit</th>
+					<th class="last action">Delete</th>
+				</tr>
+			</thead>
+			<tfoot>
+				<tr>
+					<td colspan="9"></td>
+				</tr>
+			</tfoot>
+			<tbody>
+			<?php
+			$shade = true;
+			foreach($this->list as $key => $val) {
+				if($shade)
+					$class = 'shadeoff';
+				else
+					$class = 'shadeon';
+				$shade = !$shade;
+			?>
+				<tr class="<?=$class?>">
+					<td class="firstrow"><a class="blue" href="/admin/units/edit/id/<?=$val['id']?>"><?=$val['name']?></a></td>
+					<td><?=$val['format']?></td>
+                                        <td><?=$val['symbol']?></td>
+					<td><a href="/admin/units/view/id/<?=$val['id']?>" title="View" class="btn_view">View</a></td>
+					<td><a href="/admin/units/edit/id/<?=$val['id']?>" title="Edit" class="btn_edit">Edit</a></td>
+					<td class="lastrow"><a href="/admin/units/delete/id/<?=$val['id']?>" title="Delete" class="btn_delete" onclick="return confirm('Are you sure you want to delete this entry?')">Delete</a></td>
+				</tr>
+			<?php
+			}
+			?>
+			</tbody>
+		</table>
+	</div>
+</div>
+
+<script type="text/javascript" charset="utf-8">
+$(document).ready(function() {
+	//$(".date-pick").datepicker();
+});
+</script>

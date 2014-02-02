@@ -1,0 +1,88 @@
+<h2>Setting Return Address</h2>
+<ul class="navigation">
+<!--	<li><a class="btn_back" href="/admin/setting">Back</a></li>-->
+	<!--<li><a class="btn_export" href="">Export</a></li>-->
+</ul>
+<div style="clear: both;"></div>
+
+<form id="userForm" method="post" action="" enctype="multipart/form-data">
+<input type="hidden" name="id" value="<?=$this->dish['id']?>">
+<div class="datatable">
+	<table id="mediamanagertable">
+		<thead>
+			<tr class="header">
+				<th width="125" class="first"></th>
+				<th width="575"></th>
+				<th class="lastrow"></th>
+			</tr>
+		</thead>
+		<tfoot>
+			<tr class="footer">
+				<td colspan="4">&nbsp;</td>
+			</tr>
+		</tfoot>
+		<tbody>
+			<tr>
+				<td class="firstrow">Address1:</td>
+				<td>
+					<input type="text" size="62" name="data[addr1]" value="<?=$this->dish['addr1']?>">
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+                        <tr>
+				<td class="firstrow">Address2:</td>
+				<td>
+					<input type="text" size="62" name="data[addr2]" value="<?=$this->dish['addr2']?>">
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+                        <tr>
+				<td class="firstrow">City:</td>
+				<td>
+					<input type="text" size="62" name="data[city]" value="<?=$this->dish['city']?>">
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+                        <tr>
+				<td class="firstrow">Zip:</td>
+				<td>
+					<input type="text" size="62" name="data[zip]" value="<?=$this->dish['zip']?>">
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+                        <tr>
+				<td class="firstrow">State:</td>
+				<td>
+					<input type="text" size="62" name="data[state]" value="<?=$this->dish['state']?>">
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+                        <tr>
+				<td class="firstrow">Phone:</td>
+				<td>
+					<input type="text" size="62" name="data[phone]" value="<?=$this->dish['phone']?>">
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+			<tr>
+				<td class="firstrow"><input type="submit" value="Save"></td>
+				<td></td>
+				<td class="lastrow"></td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+</form>
+
+<ul class="navigation">
+<!--	<li><a class="btn_back" href="/admin/setting">Back</a></li>-->
+	<!--<li><a class="btn_export" href="">Export</a></li>-->
+</ul>
+<div style="clear: both;"></div>
+
+<script type="text/javascript">
+$(document).ready(function() {
+	$("#mediamanagertable tbody tr:even").addClass("shadeon");
+	$("#mediamanagertable tbody tr:odd").addClass("shadeoff");
+});
+</script>

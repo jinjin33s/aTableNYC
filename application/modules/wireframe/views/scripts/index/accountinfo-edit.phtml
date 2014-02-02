@@ -1,0 +1,70 @@
+<?php $this->layout()->setLayout('account'); ?>
+<div class="int-content">
+	<div class="account-topnav"><a href="/wireframe/index/account">My Orders</a> | <a href="/wireframe/index/accountinfo" class="active">My Profile</a>
+	</div>
+	<div class="account-wrap">
+			<form action="/wireframe/index/accountinfo" method="post">
+		<div class="edit-save">
+			<input type="submit" value="Save">
+		</div>
+		<div class="account-right">
+				<div class="cols-account">
+					<div class="col-two first">
+						<div class="row"><label>Email:</label> <input type="text" value="dan@domainname.com"></div>
+						<div class="row"><label>Type it again:</label> <input type="text" value="dan@domainname.com"></div>
+						<div class="row"><label>Password:</label> <input type="password" value="********"></div>
+						<div class="row"><label>Type it again:</label> <input type="password" value="********"></div>
+						<div class="row"><label>In what city were you born?:</label> <input type="text" value="Testville"></div>
+						<h3>Personal Information </h3>
+						<div class="row"><label>First Name:</label> <input type="text" value="Dan"></div>
+						<div class="row"><label>Last Name:</label> <input type="text" value="Testfield"></div>
+						<div class="row"><label> Phone 1:</label> <input type="text" value="212-555-5555"></div>
+						<div class="row"><label>Phone 2 <em>(opt.)</em>:</label> <input type="text" value="212-555-5555"></div>
+						<div class="row"><label>Birthday <em>(opt.)</em>:</label> <input type="text" value="12/20/1974"></div>
+						<h3>Delivery Address</h3>
+						<div class="row"><label>Address 1:</label>  <input type="text" value="123 Manhattan Street"></div>
+						<div class="row"><label>Address 2:</label>   <input type="text" value="Apartment 28"></div>
+						<div class="row">
+							<div class="city inline-fields">
+								<label>City:</label>
+								<input type="text" value="New York">
+							</div>
+							<div class="zip  inline-fields"><label>Zip:</label> <input type="text" value="10010"></div>
+							<div class="zip  inline-fields"><label>State:</label> <input type="text" value="New York"></div>
+						</div>
+						<h3>Billing Address  <input type="checkbox" checked> Same as delivery address</h3>
+						<div class="row"><label>Address 1:</label>  <input type="text" value="123 Manhattan Street"></div>
+						<div class="row"><label>Address 2:</label>   <input type="text" value="Apartment 28"></div>
+						<div class="row">
+							<div class="city inline-fields">
+								<label>City:</label>
+								<input type="text" value="New York">
+							</div>
+							<div class="zip  inline-fields"><label>Zip:</label> <input type="text" value="10010"></div>
+							<div class="zip  inline-fields"><label>State:</label> <input type="text" value="New York"></div>
+						</div>
+					</div>
+					<div class="col-two">
+						<div class="row"><label class="wide">Do you have a doorman?</label> <select><option>No</option><option>Yes</option></select></div>
+						<div class="row"><strong>Special Delivery Instructions</strong></div>
+						<div class="row textarea-row"><textarea>On the back porch behind the plant next to the door.></textarea></div>
+						<div class="row checkbox-row"><input type="checkbox" checked> I agree to the Food Allergies Disclaimer</div>
+						<h3>Delivery Reminder Emails</h3>
+						<div class="row checkbox-row"><input type="radio" name="delivery-day" value="oneday">  1 Day Before delivery</div>
+						<div class="row checkbox-row"><input type="radio" name="delivery-day" value="sameday">  adelivery day</div>
+						<div class="row"><label>Email 1:</label> <input type="text" value="dan@domainname.com"></div>
+						<div class="row"><label>Email 2:</label> <input type="text" value="dan@domainname.com"></div>
+						<h3>Payment Information</h3>
+						<div class="row"><a href="/wireframe/index/accountpayinfo">Edit Payment Method</a></div>
+						<div class="row"><label>Payment method</label> <span class="fielddata">Credit Card</span></div>
+						<div class="row"><label>Card Type</label> <span class="fielddata">Visa</span></div>
+						<div class="row"><label>Cardholder's Name</label> <span class="fielddata">Dan Testfield</span></div>
+						<div class="row"><label>Expiration Date</label> <span class="fielddata">04/14</span></div>
+					</div>
+				</div>
+		</div>
+	</div>
+	</form>
+</div>
+</div>
+</div>

@@ -1,0 +1,95 @@
+<?php
+	$this->headLink()->prependStylesheet('/css/admin/reset-fonts-grids.css');
+	$this->headLink()->appendStylesheet('/css/admin/site.css');
+	$this->headLink()->appendStylesheet('/css/admin/jquery-ui-1.8.custom.css');
+	$this->headLink()->appendStylesheet('/css/admin/ie6.css', 'screen', 'lte IE 6');
+	$this->headLink()->appendStylesheet('/css/admin/ie7.css', 'screen', 'IE 7');
+
+	$this->headScript()->prependFile('http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js');
+	$this->headScript()->appendFile('http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.3/jquery-ui.min.js');
+	$this->headScript()->appendFile('http://ajax.microsoft.com/ajax/jquery.validate/1.7/jquery.validate.min.js');
+	$this->headScript()->appendFile('http://ajax.microsoft.com/ajax/jquery.validate/1.7/additional-methods.js');
+	$this->headScript()->appendFile('/js/admin/date.js');
+        $this->headScript()->appendFile('/js/jquery.ajaxForm.js');
+        $this->headScript()->appendFile('/js/jquery-ui.combobox.js');
+        $this->headScript()->appendFile('/js/jquery.fancybox-1.3.1.pack.js');
+	$this->headScript()->appendFile('/js/jquery.easing-1.3.pack.js');
+	$this->headScript()->appendFile('/js/jquery.cluetip.js');
+	$this->headScript()->appendFile('/js/unitpngfix.js','text/javascript',array('conditional' => 'lt IE 7'));
+
+?>
+<?php //$this->auth = Zend_Auth::getInstance();?>
+<?php
+// echo $this->action('init', 'page', 'admin')
+?>
+<?php echo $this->doctype(); ?>
+<html>
+<head>
+<?php
+echo $this->headMeta();
+echo $this->headTitle()->setSeparator(' :: ');
+echo $this->headLink();
+echo $this->headStyle();
+echo $this->headScript();
+if($this->page =='print') {
+    echo "<link type='text/css' media='print' rel='stylesheet' href='/css/admin/site.css' />";
+    echo "<link type='text/css' media='print' rel='stylesheet' href='/css/admin/reset-fonts-grids.css' />";
+    echo "<link type='text/css' media='print' rel='stylesheet' href='/css/admin/jquery-ui-1.8.custom.css' />";
+    
+}
+?> 
+</head>
+<body id="<?=$this->placeholder('section');?>">
+	<div id="content_wrapper">
+            <? if($this->page =='print') {}else{ ?>
+		<div id="header">
+			<a class="logo" href="/admin/">Home</a>
+		<?php if($this->loggedInUser()) { ?>
+			<a class="logout_btn" href="/admin/auth/logout">Logout</a>
+                        
+		<?php } ?>
+		</div>
+		<div id="navigation_wrapper">
+			<div id="navigation">
+				<ul>
+				<?php if($this->loggedInUser()) { ?>
+					<li><a href="/admin/index">Home</a></li>
+					<li><a href="/admin/members">Members</a></li>
+					<li><a href="/admin/orders">Orders</a></li>
+					<li><a href="/admin/menus">Menus</a></li>
+					<li><a href="/admin/dishes">Dishes</a></li>
+                                        <li><a href="/admin/dishcategory">Categories</a></li>
+					<li><a href="/admin/configurations">Configurations</a></li>
+					<li><a href="/admin/users">Account Settings</a></li>
+                                        <li><a href="/admin/setting/edit/id/1">Settings</a></li>
+				<?php } ?>
+				</ul>
+			</div>
+		</div>
+		<div id="sub_navigation_wrapper">
+			<div id="sub_navigation">
+				<ul>
+					<?=$this->placeholder('subSectionMenu');?>
+				</ul>
+				<h2>CNY-SiteManager</h2>
+			</div>
+		</div>
+
+		<h4 id="cms_date"><span><?=date("l, F j, Y")?></span></h4>
+		<div style="clear: both;"></div>
+                <? } ?>
+		<div id="content_area">
+			<?php echo $this->layout()->content; ?>
+		</div>
+                <? if($this->page =='print') {}else{ ?>
+		<div style="clear: both;padding-top: 90px; "></div>
+		<div id="footer_wrapper">
+			<div id="footer">
+				<p class="powered">CNY-SiteManager - Powered by CYBER-NY&trade;</p>
+				<p class="version">SiteManager Version 2.0</p>
+			</div>
+		</div>
+                <? } ?>
+	</div>
+</body>
+</html>

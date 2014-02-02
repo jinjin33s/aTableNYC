@@ -1,0 +1,27 @@
+<?php
+//ini_set('display_errors','1');
+//error_reporting(E_ALL);
+$members = "";
+$headerNames = array_keys($this->list[0]);
+
+foreach ($headerNames as $k=>$v) {
+	$headers[] = '"'.str_replace("_"," ",strtoupper($v)).'"';
+}
+$header = implode(",",$headers)."\n";
+
+foreach($this->list as $key => $val) {
+	$memberRow = '';
+	foreach ($headerNames as $k=>$v) {
+		$memberRow[] .= '"'.$val[$v].'"';
+	}
+	$members .= implode(",",$memberRow)."\n";
+}
+
+$filename = 'members'.".csv";
+$out = $header.$members;
+
+header("Content-type: text/plain");
+header("Content-Disposition: attachment; filename=$filename");
+
+echo $out;
+?>

@@ -1,0 +1,85 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>A Table</title>
+		<link type="text/css" rel="stylesheet" href="/css/reset-fonts-grids.css"/>
+		<link type="text/css" href="/css/jquery-ui-1.8.14.custom.css" rel="stylesheet" />	
+<style type="text/css" media="all">
+	@import "/css/jtip.css";
+</style>
+<link type="text/css" rel="stylesheet" href="css/wf-styles.css"/><!--[if IE 6]>  <link type="text/css" rel="stylesheet" href="css/wf-ie6.css"/> <![endif]-->
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.13/jquery-ui.js"></script>
+<script src="/js/jtip.js" type="text/javascript"></script>
+<script type="text/javascript" src="/js/jquery.cycle.all.latest.js"></script>
+<!--[if IE]>
+.rounded-corners {
+  behavior: url(border-radius.htc);
+}
+<![endif]-->
+<script>
+	natDays = [];
+	function nationalDays(date) {
+	for (i = 0; i < natDays.length; i++) {
+                        if (date.getMonth() == natDays[i][0] - 1
+                        && date.getDate() == natDays[i][1]) {
+                                return [false, natDays[i][2] + '_day'];
+                        }
+                }
+                return [true, ''];
+        }
+
+        function noWeekendsOrHolidays(date) {
+                var noWeekend = $.datepicker.noWeekends(date);
+                if (noWeekend[0]) {
+                        return nationalDays(date);
+                } else {
+                        return noWeekend;
+                }
+        }
+
+
+        $(function() { 
+                $("#datepicker").datepicker({ 
+			showOn: "button",
+			buttonImage: "images/calendar.gif",
+			buttonImageOnly: true,
+                        minDate: +2, 
+						maxDate: "+14D",
+                        hideIfNoPrevNext: true,
+                        beforeShowDay: $.datepicker.noWeekends,
+                        altField: '#alternate',
+                }); 
+        });
+
+$(document).ready(function() {
+    $('.slideshow').cycle({
+		fx: 'fade' // choose your transition type, ex: fade, scrollUp, shuffle, etc...
+	});
+});  
+			$(function()
+			{
+			$(".add").click(function()
+			{
+			var currentVal = parseInt($(this).next(".qty").val());
+			if (currentVal != NaN)
+			{
+			$(this).next(".qty").val(currentVal + 1);
+			}
+			});
+			$(".minus").click(function()
+			{
+			var currentVal = parseInt($(this).prev(".qty").val());
+			if (currentVal != NaN)
+			{
+			$(this).prev(".qty").val(currentVal - 1);
+			}
+			});
+			});
+</script>
+	</head>
+	<body>
+		 			<?=$this->layout()->content?>
+				 	</body>
+</html>

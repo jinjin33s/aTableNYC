@@ -1,0 +1,164 @@
+
+<?php $this->layout()->setLayout('order'); ?>
+<div id="order-steps" class="step-three">
+	<ul>
+		<li id="menu-step-one">Step 1. Select Dishes</li>
+		<li id="menu-step-two">Step 2. Check Out</li>
+		<li id="menu-step-three">Step 3. Confirm Order</li>
+	</ul>
+</div>
+<div class="int-content">
+	<div class="menu-head">
+							<a href="/wireframe/index/order" class="menunav-next editorder"">Edit Order</a>
+		<h1>Confirm Your Order <span class="smalltext">Review and submit your order</span></h1>
+	</div>
+	<div class="checkout-wrap">
+		<div class="login">
+			<form action="/wireframe/index/orderconfirm" method="post">
+				<h1>Checkout as a guest:</h1>
+				<h2>Delivery Information</h2>
+				<div class="row"><label>Name:</label> <span class="fielddata">Dan Testfield</span></div>
+				<div class="row"><label>Address 1:</label>  <span class="fielddata">123 Manhattan Street</span></div>
+				<div class="row"><label>Address 2:</label>   <span class="fielddata">Apartment 28</span></div>
+				<div class="row">
+					<div class="city inline-fields">
+						<label>City:</label>   <span class="fielddata">New York</span>
+						<div class="zip  inline-fields"><label>State:</label> <span class="fielddata">New York</span></div>
+						<div class="zip  inline-fields"><label>Zip:</label> <span class="fielddata">10010</span></div>
+					</div>
+				</div>
+				<h2>Contact Information</h2>
+				<div class="row"><label>Telephone:</label> <span class="fielddata">212-555-5555</span></div>
+				<div class="row"><label>Email:</label> <span class="fielddata">dan@domainname.com</span></div>
+				<h2>Payment Information</h2>
+				<div class="row"><label>Credit Card:</label> <span class="fielddata">XXXXXXXXXXXXX123</span></div>
+				<div class="row">
+					<label>Exp Date:</label>
+					<div class="cvv  inline-fields"> <span class="fielddata">04/14</span></div>
+					<div class="cvv  inline-fields"><label>CVV:</label> <span class="fielddata">123</span></div>
+				</div>
+				<div class="row"><label>Name:</label> <span class="fielddata">Dan Testfield</span></div>
+				<div class="row"><label>Address 1:</label>  <span class="fielddata">123 Manhattan Street</span></div>
+				<div class="row"><label>Address 2:</label>   <span class="fielddata">Apartment 28</span></div>
+				<div class="row">
+					<div class="city inline-fields">
+						<label>City:</label>   <span class="fielddata">New York</span>
+						<div class="zip  inline-fields"><label>State:</label> <span class="fielddata">New York</span></div>
+						<div class="zip  inline-fields"><label>Zip:</label> <span class="fielddata">10010</span></div>
+					</div>
+				</div> 
+			</form>
+		</div>
+		<div class="guest">
+				<h1>Checkout as a guest:</h1>
+			<div class="order-sidebar"> 
+				<div class="mid"> 
+					<form action="/wireframe/index/orderconfirm" method="post">
+						<h3>Delivery Date: <span class="deliver-date">Wednesday 5/26</span></h3>
+						<table class="order-sidebar-table">
+							<tr class="order-head">
+								<th class="col-item">Item</th>
+								<th class="col-qty">Qty</th>
+								<th class="col-cost">Cost</th> 
+							</tr>
+							<tr>
+								<td valign="top">Sample item Option Title Long Name</td>
+								<td valign="top">2</td>
+								<td valign="top">$10.00</td> 							</tr>
+							<tr>
+								<td valign="top">Sample item Option Title Long Name</td>
+								<td valign="top">2</td>
+								<td valign="top">$10.00</td> 
+							</tr>
+						</table>
+						<h3>Delivery Date: <span class="deliver-date">Friday 5/28</span></h3>
+						<table class="order-sidebar-table">
+							<tr class="order-head">
+								<th class="col-item">Item</th>
+								<th class="col-qty">Qty</th>
+								<th class="col-cost">Cost</th> 
+							</tr>
+							<tr>
+								<td valign="top">Sample item Option Title Long Name</td>
+								<td valign="top">2</td>
+								<td valign="top">$10.00</td> 
+							</tr>
+							<tr>
+								<td valign="top">Sample item Option Title Long Name</td>
+								<td valign="top">2</td>
+								<td valign="top">$10.00</td> 
+							</tr>
+						</table>
+						<table class="order-sidebar-table subtotal">
+							<tr class="order-head subtotal">
+								<th class="col-item">Sub-Total</th>
+								<th class="col-qty"></th>
+								<th class="col-cost">$38.00</th> 
+							</tr>
+							<tr>
+								<td valign="top">Delivery Fee</td>
+								<td valign="top"></td>
+								<td valign="top">$10.00</td> 
+							</tr>
+							<tr>
+								<td valign="top">Tax</td>
+								<td valign="top"></td>
+								<td valign="top">$3.40</td> 
+							</tr>
+							<tr class="order-head subtotal">
+								<th class="col-item">TOTAL</th>
+								<th class="col-qty"></th>
+								<th class="col-cost">$51.40</th> 
+							</tr>
+						</table>
+						<div class="order-submit"><a href="/wireframe/index/order" class="editorder"">< Edit Order</a>
+
+							<input type="submit" value="Submit Order">
+						</div> 
+					</form>
+				</div>
+				<div class="bottom"></div>
+			</div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+	$(document).ready(function(){
+	$(".radio").removeAttr("checked");
+	$(".qty").val("1");
+	$(".radio").bind("click",onOff);
+	$(".add").click(add);
+	$(".minus").click(minus);
+	});
+	function onOff() {
+	if ($(this).attr("checked") == "checked") {
+	$(this).parent().prepend('
+	<div class="qty-wrap">
+		<input type="button" value="+" class="add" />
+		<input type="text" length="3" value="1" class="quantity qty" name="qty">
+		<input type="button" value="-" class="minus" />
+	</div>');
+	$(this).parent().find(".add").bind("click",add);
+	$(this).parent().find(".minus").bind("click",minus);
+	$(this).remove();
+	}
+	}
+	function add() {
+	var currentVal = parseInt($(this).next(".qty").val());
+	if (currentVal != NaN) {
+	$(this).next(".qty").val(currentVal + 1);
+	}
+	}
+	function minus() {
+	var currentVal = parseInt($(this).prev(".qty").val());
+	if (currentVal != NaN) {
+	$(this).prev(".qty").val(currentVal - 1);
+	}
+	if ($(this).parent().find(".qty").val() <= 0) {
+		$(this).parent().parent().prepend('<input type="radio" class="radio">');
+		$(this).parent().parent().find(".radio").bind("click",onOff);
+
+		$(this).parent().parent().find(".qty-wrap").remove();
+	}
+}
+</script>

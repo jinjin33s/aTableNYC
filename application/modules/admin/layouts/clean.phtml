@@ -1,0 +1,37 @@
+<?php
+	$this->headLink()->prependStylesheet('/css/admin/reset-fonts-grids.css');
+	$this->headLink()->appendStylesheet('/css/admin/site.css');
+	$this->headLink()->appendStylesheet('/css/admin/jquery-ui-1.8.custom.css');
+	$this->headLink()->appendStylesheet('/css/admin/ie6.css', 'screen', 'lte IE 6');
+	$this->headLink()->appendStylesheet('/css/admin/ie7.css', 'screen', 'IE 7');
+
+	$this->headScript()->prependFile('http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js');
+	$this->headScript()->appendFile('http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.3/jquery-ui.min.js');
+	$this->headScript()->appendFile('http://ajax.microsoft.com/ajax/jquery.validate/1.7/jquery.validate.min.js');
+	$this->headScript()->appendFile('http://ajax.microsoft.com/ajax/jquery.validate/1.7/additional-methods.js');
+	$this->headScript()->appendFile('/js/admin/date.js');
+	$this->headScript()->appendFile('/js/unitpngfix.js','text/javascript',array('conditional' => 'lt IE 7'));
+
+?>
+<?php //$this->auth = Zend_Auth::getInstance();?>
+<?php
+// echo $this->action('init', 'page', 'admin')
+?>
+<?php echo $this->doctype(); ?>
+<html>
+<head>
+<?php
+echo $this->headMeta();
+echo $this->headTitle()->setSeparator(' :: ');
+echo $this->headLink();
+echo $this->headStyle();
+echo $this->headScript();
+?>
+
+</head>
+<body id="<?=$this->placeholder('section');?>">
+	<div id="content_wrapper">
+		<?php echo $this->layout()->content; ?>
+	</div>
+</body>
+</html>

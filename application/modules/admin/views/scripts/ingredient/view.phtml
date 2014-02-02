@@ -1,0 +1,73 @@
+<h2>Edit Ingredient</h2>
+<ul class="navigation">
+	<li><a class="btn_back" href="/admin/ingredient">Back</a></li>
+	<!--<li><a class="btn_export" href="">Export</a></li>-->
+</ul>
+<div style="clear: both;"></div>
+
+<div class="datatable">
+	<table id="mediamanagertable">
+		<thead>
+			<tr class="header">
+				<th width="125" class="first"><b><?=$this->dish['ingredient']?></b></th>
+				<th width="575"></th>
+				<th class="lastrow"></th>
+			</tr>
+		</thead>
+		<tfoot>
+			<tr class="footer">
+				<td colspan="4">&nbsp;</td>
+			</tr>
+		</tfoot>
+		<tbody>
+			<tr>
+				<td class="firstrow">Ingredient:</td>
+				<td>
+					<?=$this->dish['ingredient']?>
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+                        <tr>
+				<td class="firstrow">Ref*:</td>
+				<td>
+					<?=$this->dish['ref']?>
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+                        <tr>
+				<td class="firstrow">Unit 1:</td>
+				<td>
+                                        <?php foreach($this->unit_categories as $cart_key => $val){ ?>
+                                        <?php if($cart_key == $this->dish['unit1']) {?> 
+                                        <?php echo $val;} }?> 
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+                        <tr>
+				<td class="firstrow">Unit 2:</td>
+				<td>
+					<?=$this->dish['unit2']?>
+				</td>
+				<td class="lastrow"></td>
+			</tr>			
+			<tr>
+				<td class="firstrow"><input type="submit" value="Save"></td>
+				<td></td>
+				<td class="lastrow"></td>
+			</tr>			
+		</tbody>
+	</table>
+</div>
+
+<ul class="navigation">
+	<li><a class="btn_back" href="/admin/ingredient">Back</a></li>
+	<!--<li><a class="btn_export" href="">Export</a></li>-->
+</ul>
+<div style="clear: both;"></div>
+
+<script type="text/javascript">
+$(document).ready(function() {
+	$("#mediamanagertable tbody tr:even").addClass("shadeon");
+	$("#mediamanagertable tbody tr:odd").addClass("shadeoff");
+});
+</script>

@@ -1,0 +1,28 @@
+<div id="content_header">
+	<h2>Hello <?=$this->user->firstname?>,</h2>
+	<h4><?=date("l, F j, Y")?></h4>
+	<div id="divider"></div>
+	<div style="clear: both;"></div>
+</div>
+<div id="leftbox">
+	<h3>Welcome to the <?=$this->sitename?> SiteManager</h3>
+	<p>
+		CNY-SiteManager is your secure control panel for administering the functional aspects of your website.
+		Select from the options in the right column to manage your website.
+	</p>
+	<p>To add access to new users (website administrators), go to <a class="linkblue" href="/admin/users">settings</a> and create a new account.</p>
+</div>
+<div id="rightbox">
+	<ul>
+		<li id="manager1"><a href="/admin/members">Members</a></li>
+		<li id="manager1"><a href="/admin/orders">Orders</a></li>
+		<li id="manager1"><a href="/admin/menus">Menus</a></li>
+		<li id="manager1"><a href="/admin/dishes">Dishes</a></li>
+		<li id="manager1"><a href="/admin/configurations">Configurations</a></li>
+		<li id="accountsettings"><a href="/admin/users">Account Settings</a></li>
+		<!--<li id="help"><a href="">Help</a></li>-->
+		<li id="logout"><a href="/admin/auth/logout">Log Out</a></li>
+	</ul>
+</div>
+<div style="clear: both;"></div>
+<div id="bottom"></div>

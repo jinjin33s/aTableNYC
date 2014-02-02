@@ -1,0 +1,23 @@
+@charset "UTF-8";
+/* CSS Document */
+.menu-table tr.head-row th {
+    padding: 25px 4px 4px;
+}
+.menu-head h2 {
+	width:300px;
+}
+table.order-sidebar-table {
+	width:168px;
+}
+#scrollbar1 .viewport {
+	margin-left:5px;
+}
+.weekly-menu {
+	padding-right:5px;
+}
+.weekly-menu a.menunav-prev {
+	left:-5px;
+}
+.order-sidebar h2 {
+	margin-top:9px;	
+}

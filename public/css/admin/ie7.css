@@ -1,0 +1,4 @@
+#header a.logout_btn:link, #header a.logout_btn:active, #header a.logout_btn:visited, #header a.logout_btn:hover{ top: 25px; }
+#login h2{ margin: 27px 0px 0px 0px; }
+#manager #search_wrapper #searchcopy p.row2 input.exportcheck{ margin: 1px 5px 0px 0px; }
+#manager  #content_area .datatable input.checkbox{ margin: 0px 0px 0px 5px;}

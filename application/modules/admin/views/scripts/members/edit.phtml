@@ -1,0 +1,258 @@
+<h2>Edit Member</h2>
+<ul class="navigation">
+	<li><a class="btn_back" href="/admin/members">Back</a></li>
+	<!--<li><a class="btn_export" href="">Export</a></li>-->
+</ul>
+<div style="clear: both;"></div>
+
+<form id="userForm" method="post" action="" enctype="multipart/form-data">
+<input type="hidden" name="id" value="<?=$this->member['id']?>">
+<div class="datatable">
+	<table id="mediamanagertable">
+		<thead>
+			<tr class="header">
+				<th width="250" class="first"><?=$this->member['lastname']?></th>
+				<th width="575"></th>
+				<th class="lastrow"></th>
+			</tr>
+		</thead>
+		<tfoot>
+			<tr class="footer">
+				<td colspan="4">&nbsp;</td>
+			</tr>
+		</tfoot>
+		<tbody>
+			<tr class="shadeoff">
+				<td class="firstrow">Email:</td>
+				<td>
+					<input type="text" size="62" name="data[email]" value="<?=$this->member['email']?>">
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+			<tr class="shadeon">
+				<td class="firstrow">Password:</td>
+				<td>
+					<input type="text" size="62" name="data[password]" value="<?=$this->member['password']?>">
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+			<tr class="shadeoff">
+				<td class="firstrow">Security Question:</td>
+				<td>
+					<input type="text" size="62" name="data[security]" value="<?=$this->member['security']?>">
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+			<tr class="shadeon">
+				<td class="firstrow">First Name:</td>
+				<td>
+					<input type="text" size="62" name="data[firstname]" value="<?=$this->member['firstname']?>">
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+			<tr class="shadeoff">
+				<td class="firstrow">Last Name:</td>
+				<td>
+					<input type="text" size="62" name="data[lastname]" value="<?=$this->member['lastname']?>">
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+			<tr class="shadeon">
+				<td class="firstrow">Phone 1:</td>
+				<td>
+					<input type="text" size="62" name="data[phone1]" value="<?=$this->member['phone1']?>">
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+                        <tr class="shadeoff">
+				<td class="firstrow">Phone 2(opt.):</td>
+				<td>
+					<input type="text" size="62" name="data[phone2]" value="<?=$this->member['phone2']?>">
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+                        <tr class="shadeon">
+				<td class="firstrow">Birthday(opt.):</td>
+				<td>
+					<input type="text" size="62" name="data[bday]" value="<?=$this->member['bday']?>">
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+                        <tr class="shadeoff">
+				<td class="firstrow">Address 1:</td>
+				<td>
+					<input type="text" size="62" name="data[dAddr1]" value="<?=$this->member['dAddr1']?>">
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+                        <tr class="shadeon">
+				<td class="firstrow">Address 2:</td>
+				<td>
+					<input type="text" size="62" name="data[dAddr2]" value="<?=$this->member['dAddr2']?>">
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+                        <tr class="shadeoff">
+				<td class="firstrow">City:</td>
+				<td>
+					<input type="text" size="62" name="data[dCity]" value="<?=$this->member['dCity']?>">
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+                        <tr class="shadeon">
+				<td class="firstrow">Zip:</td>
+				<td>
+					<input type="text" size="62" name="data[dZip]" value="<?=$this->member['dZip']?>">
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+                        <tr class="shadeoff">
+				<td class="firstrow">State:</td>
+				<td>
+					<input type="text" size="62" name="data[dState]" value="<?=$this->member['dState']?>">
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+                        <tr class="shadeon">
+				<td class="firstrow">Address 1:</td>
+				<td>
+					<input type="text" size="62" name="data[phone1]" value="<?=$this->member['phone1']?>">
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+                        <tr class="shadeoff">
+				<td class="firstrow">Address 2:</td>
+				<td>
+					<input type="text" size="62" name="data[phone2]" value="<?=$this->member['phone2']?>">
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+                        <tr class="shadeon">
+				<td class="firstrow">City:</td>
+				<td>
+					<input type="text" size="62" name="data[phone1]" value="<?=$this->member['phone1']?>">
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+                        <tr class="shadeoff">
+				<td class="firstrow">Zip:</td>
+				<td>
+					<input type="text" size="62" name="data[phone2]" value="<?=$this->member['phone2']?>">
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+                        <tr class="shadeon">
+				<td class="firstrow">State:</td>
+				<td>
+					<input type="text" size="62" name="data[phone1]" value="<?=$this->member['phone1']?>">
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+                        <tr class="shadeoff">
+				<td class="firstrow">Do you have a doorman?:</td>
+				<td>
+					<input type="text" size="62" name="data[doorman]" value="<?=$this->member['doorman']?>">
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+                        <tr class="shadeon">
+				<td class="firstrow">Special Delivery Instructions:</td>
+				<td>
+					<input type="text" size="62" name="data[special]" value="<?=$this->member['special']?>">
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+                        <tr class="shadeoff">
+				<td class="firstrow">I agree to the Food Allergies Disclaimer:</td>
+				<td>
+					<input type="text" size="62" name="data[allergies]" value="<?=$this->member['allergies']?>">
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+                        <tr class="shadeon">
+				<td class="firstrow">Delivery reminder emails:</td>
+				<td>
+					<input type="text" size="62" name="data[reminder]" value="<?=$this->member['reminder']?>">
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+                        <tr class="shadeoff">
+				<td class="firstrow">Email 1:</td>
+				<td>
+					<input type="text" size="62" name="data[email1]" value="<?=$this->member['email1']?>">
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+                        <tr class="shadeon">
+				<td class="firstrow">Email 2:</td>
+				<td>
+					<input type="text" size="62" name="data[email2]" value="<?=$this->member['email2']?>">
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+                        <tr class="shadeoff">
+				<td class="firstrow">Payment method:</td>
+				<td>
+                                    <select id="select" class="styled" name="data[payment]">
+                                        <option id="paypal">PayPal</option>
+                                        <option id="credit-card" selected>Credit Card</option>
+                                    </select>
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+                        <tr class="shadeon">
+				<td class="firstrow">Credit card type:</td>
+				<td>
+                                    <select class="styled" name="data[credit]">
+                                        <option>Amex</option>
+                                        <option>Visa</option>
+                                        <option>MasterCard</option>
+                                        <option>Discovery</option>
+                                    </select>
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+                        <tr class="shadeoff">
+				<td class="firstrow">Cardholder's name:</td>
+				<td>
+					<input type="text" size="62" name="data[cardholder]" value="<?=$this->member['cardholder']?>">
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+                        <tr class="shadeon">
+				<td class="firstrow">Credit card number:</td>
+				<td>
+					<input type="text" size="62" name="data[cardNum]" value="<?=$this->member['cardNum']?>">
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+                        <tr class="shadeoff">
+				<td class="firstrow">Expiration date:</td>
+				<td>
+					<input type="text" size="62" name="data[expiration]" value="<?=$this->member['expiration']?>">
+				</td>
+				<td class="lastrow"></td>
+			</tr>                        
+                        
+			<tr class="shadeoff">
+				<td class="firstrow">Status:</td>
+				<td>
+					<?=$this->formSelect('data[status]', $this->member['status'], array('id'=>'status'), $this->statuses)?>
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+			<tr class="shadeon">
+				<td class="firstrow"><input type="submit" value="Save"></td>
+				<td></td>
+				<td class="lastrow"></td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+</form>
+
+<ul class="navigation">
+	<li><a class="btn_back" href="/admin/members">Back</a></li>
+	<!--<li><a class="btn_export" href="">Export</a></li>-->
+</ul>
+<div style="clear: both;"></div>

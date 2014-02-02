@@ -1,0 +1,17 @@
+<div id="login_wrapper">
+	<div id="login_content">
+		<h2>CNY-SiteManager</h2>
+		<h3>Login</h3>
+		<form method="post" action="/admin/auth/identify">
+		<?php
+		echo $this->loginform->username;
+		echo $this->loginform->password;
+		?>
+		<input class="btn_login" type="submit" value=""><span> or <a href="/admin/auth/forgot">Forgot Password?</a></span>
+		<div style="clear: both;padding-top:30px;"></div>
+		<center style="color:#ff0000;font-weight:bold"><?php echo @$this->error ?></center>
+		<?php echo $this->message ?>
+		</form>
+	</div>
+	<div style="clear: both;"></div>
+</div>

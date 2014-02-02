@@ -1,0 +1,243 @@
+
+
+<h2>Add Ingredient</h2>
+<ul class="navigation">
+	<li><a class="btn_back" href="/admin/ingredient">Back</a></li>
+	<!--<li><a class="btn_export" href="">Export</a></li>-->
+</ul>
+<div style="clear: both;"></div>
+
+<form id="userForm" method="post" action="" enctype="multipart/form-data">
+    
+<div class="datatable">
+	<table id="mediamanagertable">
+		<thead>
+			<tr class="header">
+				<th width="150" class="first">New Ingredient</th>
+				<th width="575"></th>
+				<th class="lastrow"></th>
+			</tr>
+		</thead>
+		<tfoot>
+			<tr class="footer">
+				<td colspan="4">&nbsp;</td>
+			</tr>
+		</tfoot>
+		<tbody>
+			<tr>
+				<td class="firstrow">Ingredient:</td>
+				<td>
+					<input type="text" size="62" name="data[ingredient]" value="<?=$this->dish['ingredient']?>">
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+                        <tr>
+				<td class="firstrow">Variety:</td>
+				<td>
+					<input type="text" size="62" name="data[variety]" value="<?=$this->dish['variety']?>">
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+                        <tr>
+				<td class="firstrow">Ref*:</td>
+				<td>
+					<input type="text" size="62" name="data[ref]" value="<?=$this->dish['ref']?>">
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+                        <tr>
+				<td class="firstrow">Measurement Unit:</td>
+				<td>              
+                                    <?=$this->formSelect('data[unit1]', $this->dish['unit1'], array('id'=>'unit1', 'style'=>'width:190px;', 'class'=>'form-field'), array(""=>"Select")+$this->unit_categories)?>
+                                </td>
+				<td class="lastrow"></td>
+			</tr>
+                        <tr>
+				<td class="firstrow">Ingredients Category:</td>
+				<td>
+                                    <?=$this->formSelect('data[ingredientcategory_id]', $this->dish['ingredientcategory_id'], array('id'=>'ingredientcategory_id', 'style'=>'width:190px;', 'class'=>'form-field'), array(""=>"Select")+$this->ingredient_categories)?>					
+                                </td>
+				<td class="lastrow"></td>
+			</tr>
+                        <tr>
+				<td class="firstrow">Food Allergens:</td>
+				<td>
+                                    <?php
+                                    $allergen = $this->dish['allergen_category_id'];
+                                    $totalNum = count($this->allergen_categories);                                    
+                                    $allVal = explode(',', $allergen);                                     
+                                    $allNum = count($allVal);
+                                    for($i=0; $i<$totalNum; $i++){
+                                        if($i < $allNum){                                         
+                                        }else{
+                                            $allVal[$i] = '';
+                                        }}
+                                    ?>                                     
+                                    <?php foreach($this->allergen_categories as $cart_key => $val) { 
+                                            $flag = false;    
+                                            for($y=0; $y<$totalNum; $y++){
+                                                    if($cart_key == $allVal[$y]){
+                                                       $flag=true; 
+                                                    }
+                                                }   ?>
+                                    <?php   if($flag == true){    ?>
+                                    <?php   echo $this->formCheckbox('data[allergen_category_id][]', $cart_key, array('checked' => true)) ?> <?= $val; ?>                                    
+                                    <?php   }else{?>
+                                    <?php   echo $this->formCheckbox('data[allergen_category_id][]', $cart_key, array('checked' => false)) ?> <?= $val;?>
+                                    <?php   }} ?>
+                                    
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+                        <tr>
+				<td class="firstrow">Calories:</td>
+				<td>
+					<input type="text" size="62" name="data[calories]" value="<?=$this->dish['calories']?>">
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+                        <tr>
+				<td class="firstrow">Of which calories from fat:</td>
+				<td>
+					<input type="text" size="62" name="data[caloriesfromfat]" value="<?=$this->dish['caloriesfromfat']?>">
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+                        <tr>
+				<td class="firstrow">Total fat:</td>
+				<td>
+					<input type="text" size="62" name="data[totalfat]" value="<?=$this->dish['totalfat']?>">
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+                        <tr>
+				<td class="firstrow">Of which saturated fat:</td>
+				<td>
+					<input type="text" size="62" name="data[saturatedfat]" value="<?=$this->dish['saturatedfat']?>">
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+                        <tr>
+				<td class="firstrow">Of which trans fat:</td>
+				<td>
+					<input type="text" size="62" name="data[transfat]" value="<?=$this->dish['transfat']?>">
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+                        <tr>
+				<td class="firstrow">Cholesterol:</td>
+				<td>
+					<input type="text" size="62" name="data[cholesterol]" value="<?=$this->dish['cholesterol']?>">
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+                        <tr>
+				<td class="firstrow">Sodium:</td>
+				<td>
+					<input type="text" size="62" name="data[sodium]" value="<?=$this->dish['sodium']?>">
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+                        <tr>
+				<td class="firstrow">Total carbohydrate:</td>
+				<td>
+					<input type="text" size="62" name="data[carbohydrate]" value="<?=$this->dish['carbohydrate']?>">
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+                        <tr>
+				<td class="firstrow">Of which dietary fiber:</td>
+				<td>
+					<input type="text" size="62" name="data[fiber]" value="<?=$this->dish['fiber']?>">
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+                        <tr>
+				<td class="firstrow">Of which sugars:</td>
+				<td>
+					<input type="text" size="62" name="data[sugars]" value="<?=$this->dish['sugars']?>">
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+                        <tr>
+				<td class="firstrow">Proteins:</td>
+				<td>
+					<input type="text" size="62" name="data[proteins]" value="<?=$this->dish['proteins']?>">
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+                        <tr>
+				<td class="firstrow">Vitamin A:</td>
+				<td>
+					<input type="text" size="62" name="data[vitamina]" value="<?=$this->dish['vitamina']?>">
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+                        <tr>
+				<td class="firstrow">Vitamin C:</td>
+				<td>
+					<input type="text" size="62" name="data[vitaminc]" value="<?=$this->dish['vitaminc']?>">
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+                        <tr>
+				<td class="firstrow">Calcium:</td>
+				<td>
+					<input type="text" size="62" name="data[calcium]" value="<?=$this->dish['calcium']?>">
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+                        <tr>
+				<td class="firstrow">Iron:</td>
+				<td>
+					<input type="text" size="62" name="data[iron]" value="<?=$this->dish['iron']?>">
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+			<tr>
+				<td class="firstrow"><input type="submit" value="Save"></td>
+				<td></td>
+				<td class="lastrow"></td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+</form>
+
+<ul class="navigation">
+	<li><a class="btn_back" href="/admin/ingredient">Back</a></li>
+	<!--<li><a class="btn_export" href="">Export</a></li>-->
+</ul>
+<div style="clear: both;"></div>
+
+<style>
+	/* ComboBox special overwrites */
+	.ui-button-icon-only .ui-button-text { padding: 0.35em; }
+	.ui-autocomplete-input { padding:0 0 0 0.25em; width:150px!important;}
+	.ui-autocomplete { text-align: left; height: 200px; overflow: auto; width:250px!important; }
+	button.ui-button-icon-only  { height:1.4em; width:2em; top:4px; }
+</style>
+
+<script type="text/javascript">
+    
+    
+    $(document).ready(function() {
+	$("#ingredientcategory_id").combobox();
+        $("#unit1").combobox();
+    });
+
+    $(document).ready(function() {
+            $("#mediamanagertable tbody tr:even").addClass("shadeon");
+            $("#mediamanagertable tbody tr:odd").addClass("shadeoff");
+    });
+
+    $(document).ready(function() {
+            $(".date-pick").datepicker();
+
+            $("#mediamanagertable tbody tr:even").addClass("shadeon");
+            $("#mediamanagertable tbody tr:odd").addClass("shadeoff");
+    });
+    
+    
+    
+</script>

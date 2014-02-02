@@ -1,0 +1,226 @@
+<head>
+    <script>
+      $(document).ready(function() {
+                    
+        $("#mediamanagertable tbody tr:even").addClass("shadeon");
+	$("#mediamanagertable tbody tr:odd").addClass("shadeoff");
+        
+        $("input#autocomplete").autocomplete({
+        source: [<?php foreach ($this->projects as $val_id => $val_name){?>
+                "<?=$val_name?>",    
+        <?php } ?>
+        ]        
+        });
+        
+        
+        
+      });  
+    </script>
+</head>
+
+<form id="userForm" method="post" action="" enctype="multipart/form-data">
+<h2>Edit Menu</h2>
+<ul class="navigation">
+        <li><a href="/admin/menus/copy/id/<?=$this->menu['id']?>">Duplicate Menu</a></li>
+	<li><a class="btn_back" href="/admin/menus/full"></a></li>
+        <tr>
+            <td class="firstrow"><input type="submit" value="Save"></td>
+            <td></td>
+            <td class="lastrow"></td>
+        </tr>
+	<!--<li><a class="btn_export" href="">Export</a></li>-->
+</ul>
+<div style="clear: both;"></div>
+
+
+<input type="hidden" name="id" value="<?=$this->menu['id']?>">
+<div class="datatable">
+    <table id="mediamanagertable">
+        <thead>
+            <tr class="header">
+                <th width="125" class="first">Menu# <?=$this->menu['id']?></th>
+                <th width="575"></th>
+                <th class="lastrow"></th>
+            </tr>
+        </thead>
+            <tfoot>
+                <tr class="footer">
+                    <td colspan="4">&nbsp;</td>
+                </tr>
+            </tfoot>
+            <tbody>
+                <tr>
+                    <td class="firstrow">Menu Name:</td>
+                    <td>
+                        <input type="text" size="62" name="data[name]" value="<?=$this->menu['name']?>">
+                    </td>
+                    <td class="lastrow"></td>
+                </tr>
+                <tr>
+                    <td class="firstrow">Created By:</td>
+                    <td>
+                        <?=$this->menu['author']?>
+                    </td>
+                    <td class="lastrow"></td>
+                </tr>
+                <tr>
+                    <td class="firstrow">Start Date:</td>
+                    <td>
+                        <input type="text" size="62" name="data[start_date]" class="date-pick" value="<?=$this->menu['start_date']?>" autocomplete="off">
+                    </td>
+                    <td class="lastrow"></td>
+                </tr>
+                <tr>
+                    <td class="firstrow">End Date:</td>
+                    <td>
+                        <input type="text" size="62" name="data[end_date]" class="date-pick" value="<?=$this->menu['end_date']?>" autocomplete="off">
+                    </td>
+                    <td class="lastrow"></td>
+                </tr>
+                <tr>
+                    <td class="firstrow"># of weeks offered YTD:</td>
+                    <td>
+                            <?=$this->menu['weeks']?>
+                    </td>
+                    <td class="lastrow"></td>
+                </tr>
+<!--                <tr>
+                    <td class="firstrow">Status:</td>
+                    <td>
+                        <?=$this->formSelect('data[status]', $this->menu['status'], array('id'=>'status'), $this->statuses)?>
+                    </td>
+                    <td class="lastrow"></td>
+                </tr>-->
+                
+                <tr>
+                    <td class="firstrow">Creation Date:</td>
+                    <td>
+                        <?=$this->menu['created']?>
+                    </td>
+                    <td class="lastrow"></td>
+                </tr>
+                <tr>
+                    <td class="firstrow">Last Active:</td>
+                    <td>
+<!--                        <input type="text" size="62" name="data[last_active]" class="date-pick" value="<?=$this->menu['last_active']?>" autocomplete="off">-->
+                        <?=date("Y-m-d",strtotime($this->menu['created']))?>
+                    </td>
+                    <td class="lastrow"></td>
+                </tr>	
+                <tr>
+                    <td class="firstrow"><input type="submit" value="Save"></td>
+                    <td></td>
+                    <td class="lastrow"></td>
+                </tr>
+                
+            </tbody>
+	</table>
+</div>
+</form>
+
+<?php 
+    $cat = ""; 
+    foreach ($this->dish_categories as $cat_id =>$cat_name) {
+        
+        if ($cat != $cat_id) {
+            
+            if ($cat != '') {echo "</form></div></tbody></table>";}
+            $cat = $cat_id;
+        ?>
+        <div class="datatable">
+        <form id="userForm" method="post" action="/admin/menus/item-add" enctype="multipart/form-data">
+        <input type="hidden" name="menu_id" value="<?=$this->menu['id']?>">
+        <input type="hidden" name="cat_id" value="<?=$cat_id?>">
+        <a name="cat_<?=$cat_id?>">&nbsp;</a>
+        <h2 id="<?=$cat?>"><?=$cat_name?> Dishes</h2>
+        
+        <table id="mediamanagertable">
+        <thead>
+            <tr class="header">
+                <th width="100">no</th>
+                <th>Name</th>
+                <th>Date on Menu</th>
+                <th>YTD</th>
+                <th>Fast Menu</th>
+                <th class="lastrow">Delete</th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr class="footer">
+                <td colspan="6">
+                    <?=$this->formSelect("item", '', array('id'=>'cat_'.$cat_id, 'style'=>'width:190px;', 'class'=>'form-field'), array(""=>"Select Item")+$this->menu_items[$cat_id])?>
+                    
+                    <input type="submit" value="Add">
+                </td>
+            </tr>
+        </tfoot>
+        <tbody>
+        <?php }
+            foreach ($this->items[$cat_id] as $item) {
+                if ($item['name']) 
+                    {
+            ?>
+            
+                <tr>
+                    <td><?=$item['menu_item_id']?></td>
+                    <td>
+                        <?=$item['name']?>
+                    </td>
+                    <td><?=$item['created']?></td>
+                    <td>
+                        <?php
+                            $dayDif_item = date('z',strtotime(date("Y-m-d"))) - date('z',strtotime(date("Y-m-d",strtotime($item['modified']))));
+                            $numWeeks_item  = intval($dayDif_item / 7)+1;
+                            echo $numWeeks_item;
+                        ?>
+                    </td>
+                    <td><a href="/admin/menus/item-fastmenu/item_id/<?=$item['menu_item_id']?>/menu_id/<?=$this->menu['id']?>/cat_id/<?=$cat_id?>/fast/<?=$item['fastmenu']?>" title="View"><?=$item['fastmenu']?></a></td>
+                    <td><a href="/admin/menus/item-delete/item_id/<?=$item['menu_item_id']?>/menu_id/<?=$this->menu['id']?>/cat_id/<?=$cat_id?>" title="Delete" class="btn_delete" onclick="return confirm('Are you sure you want to delete this entry?')">Delete</a></td>
+                </tr>
+	<?php
+                    }
+		}
+	}
+	if ($cat != '') {
+	?>
+        </tbody>
+	</table>
+	</form>
+	</div>
+	<?php
+	}
+
+?>
+</div>
+<ul class="navigation">
+	<li><a class="btn_back" href="/admin/menus/full"></a></li>
+	<!--<li><a class="btn_export" href="">Export</a></li>-->
+</ul>
+<div style="clear: both;"></div>
+
+<style>
+	/* ComboBox special overwrites */
+	.ui-button-icon-only .ui-button-text { padding: 0.35em; }
+	.ui-autocomplete-input { padding:0 0 0 0.25em; width:150px!important;}
+	.ui-autocomplete { text-align: left; height: 200px; overflow: auto; width:250px!important; }
+	button.ui-button-icon-only  { height:1.6em; width:2em; top:4px; }
+</style>
+
+<script type="text/javascript" charset="utf-8">
+    
+$(document).ready(function() {
+    <?
+    foreach ($this->dish_categories as $cat_id =>$cat_name) 
+        {  ?>
+	$("#cat_<?=$cat_id?>").combobox();
+    <?  }  ?>
+    });
+    
+$(document).ready(function() {
+    
+	$("#mediamanagertable tbody tr:even").addClass("shadeon");
+	$("#mediamanagertable tbody tr:odd").addClass("shadeoff");
+        $(".date-pick").datepicker();
+});
+
+</script>

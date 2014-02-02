@@ -1,0 +1,44 @@
+<?php
+if ($this->dir == "DESC") $dir = "ASC"; else $dir = "DESC";
+?>
+<style>
+    #results_wrapper td.cost {color: #FFFFFF;}
+</style>
+<h2>Sort Algorithm</h2>
+<div style="clear: both;"></div>
+
+
+
+<div id="results_wrapper">
+	<div class="datatable">
+		<table>
+			<thead>
+				<tr class="header">
+					<th class="first">Bubble Sort</th>
+					<th>Quick Sort</th>
+                                        <th>TDB Sort</th>
+					<th class="last action"></th>
+				</tr>
+			</thead>
+			<tfoot>
+				<tr>
+					<td colspan="9"></td>
+				</tr>
+			</tfoot>
+			<tbody>			
+				<tr class="shadeoff">
+					<td class="firstrow"><a class="blue" href="/admin/test/bubble">1 - 5000</a></td>
+					<th><a class="blue" href="/admin/test/quick">1 - 10000</a></th>
+                                        <th>1 - 10000</th>
+                                        <th class="lastrow"></th>
+				</tr>
+                                <tr class="shadeon">
+					<td class="firstrow"><a class="blue" href="/admin/test/bubbled">5000 - 1</a></td>
+					<th>10000 - 1</th>
+                                        <th>10000 - 1</th> 
+                                        <th class="lastrow"></th>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>

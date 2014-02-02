@@ -1,0 +1,275 @@
+<h2>Edit Dish</h2>
+<ul class="navigation">
+	<li><a class="btn_back" href="/admin/dishes">Back</a></li>
+	<!--<li><a class="btn_export" href="">Export</a></li>-->
+</ul>
+<div style="clear: both;"></div>
+
+<form id="userForm" method="post" action="" enctype="multipart/form-data">
+<input type="hidden" name="id" value="<?=$this->dish['id']?>">
+<div class="datatable">
+	<table id="mediamanagertable">
+		<thead>
+			<tr class="header">
+				<th width="125" class="first">NO.<?=$this->dish['id']?> | </th>
+				<th width="575"><?=$this->dish['name']?></th>
+				<th class="lastrow"></th>
+			</tr>
+		</thead>
+		<tfoot>
+			<tr class="footer">
+				<td colspan="4">&nbsp;</td>
+			</tr>
+		</tfoot>
+		<tbody>
+			<tr>
+				<td class="firstrow">Name:</td>
+				<td>
+					<input type="text" name="data[name]" value="<?=$this->dish['name']?>">
+				</td>
+				<td class="lastrow"></td>
+			</tr>			
+                        <tr>
+				<td class="firstrow">Source:</td>
+				<td>
+                                        <?=$this->formSelect('data[chef_category_id]', $this->dish['chef_category_id'], array('id'=>'chef_category_id'), $this->chef_categories)?>
+				</td>
+				<td class="lastrow"></td>
+                        </tr>
+			<tr>
+				<td class="firstrow">Description:</td>
+				<td>
+					<textarea name="data[description]"><?=$this->dish['description']?></textarea>
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+			<tr>
+				<td class="firstrow">Dish Category:</td>
+				<td>
+					<?=$this->formSelect('data[dish_category_id]', $this->dish['dish_category_id'], array('id'=>'dish_category_id'), $this->dish_categories)?>
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+			<tr>
+				<td class="firstrow">Food Category:</td>
+				<td>
+					<?=$this->formSelect('data[food_category_id]', $this->dish['food_category_id'], array('id'=>'food_category_id'), $this->food_categories)?>
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+			<tr>
+				<td class="firstrow">Season :</td>
+				<td>
+                                    <select id="season" name="data[season]">
+                                        <option label="season" value="all">All</option>
+                                        <option label="season" value="fall">Fall</option>
+                                        <option label="season" value="winter">Winter</option>
+                                        <option label="season" value="spring">Spring</option>
+                                        <option label="season" value="summer">Summer</option>
+                                    </select>
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+                        <tr>
+				<td class="firstrow">Kitchen :</td>
+				<td>
+                                    <select id="season" name="data[kitchen]">
+                                        <option label="kitchen" value="French">French</option>
+                                        <option label="kitchen" value="Spanish">Spanish</option>
+                                        <option label="kitchen" value="Indian">Indian</option>
+                                    </select>
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+                        <tr>
+				<td class="firstrow">Vegetarian :</td>
+				<td>
+                                    <select id="season" name="data[vegetarian]">
+                                        <option label="vegetarian" value="yes">YES</option>
+                                        <option label="vegetarian" value="no">NO</option>
+                                    </select>
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+                        <tr>
+				<td class="firstrow">Vegan :</td>
+				<td>
+                                    <select id="season" name="data[vegan]">
+                                        <option label="vegan" value="yes">YES</option>
+                                        <option label="vegan" value="no">NO</option>
+                                    </select>
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+                        <tr class="header">
+				<th width="125" class="first">Preparation</th>
+				<th width="575"></th>
+				<th class="lastrow"></th>
+			</tr>
+			<tr>
+				<td class="firstrow">Ingredients & Procedure:</td>
+				<td>
+					<textarea name="data[ingredients]"><?=$this->dish['ingredients']?></textarea>
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+                        <tr>
+				<td class="firstrow">Preparation Time:</td>
+				<td>
+					<input type="text" name="data[prep_time]" value="<?=$this->dish['prep_time']?>">
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+                        <tr>
+				<td class="firstrow">Appliances needed :</td>
+				<td>
+                                    <select id="season" name="data[appliances]">
+                                        <option label="appliances" value="TBD">TBD</option>
+                                        <option label="appliances" value="e.g.">e.g.</option>
+                                        <option label="appliances" value="oven">oven</option>
+                                        <option label="appliances" value="stove">stove</option>
+                                    </select>
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+                        <tr class="header">
+				<th width="125" class="first">Customer information</th>
+				<th width="575"></th>
+				<th class="lastrow"></th>
+			</tr>
+                        <tr>
+				<td class="firstrow">Allergens:</td>
+				<td>
+                                    <select id="season" name="data[allergens]">
+                                        <option label="allergen" value="none">None</option>
+                                        <option label="allergen" value="shellfish">Shellfish</option>
+                                        <option label="allergen" value="milk">Milk</option>
+                                        <option label="allergen" value="soy">Soy</option>
+                                        <option label="allergen" value="wheat">Wheat</option>
+                                        <option label="allergen" value="peanut">Peanut</option>
+                                        <option label="allergen" value="egg">Egg</option>
+                                    </select>
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+                        <tr>
+				<td class="firstrow">Nutrition Facts:</td>
+				<td>
+					<input type="text" name="data[nutrition_facts]" value="<?=$this->dish['nutrition_facts']?>">
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+			<tr>
+				<td class="firstrow">Servings:</td>
+				<td>
+					<input type="text" name="data[servings]" value="<?=$this->dish['servings']?>">
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+			<tr>
+				<td class="firstrow">Reheating Instructions:</td>
+				<td>
+					<textarea name="data[reheat_instructions]"><?=$this->dish['reheat_instructions']?></textarea>
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+                        <tr>
+				<td class="firstrow">Nutritionist Comment:</td>
+				<td>
+					<input type="text" name="data[nutritionist_comment]" value="<?=$this->dish['nutritionist_comment']?>">
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+                        <tr>
+				<td class="firstrow">Chef Comment:</td>
+				<td>
+					<textarea name="data[chef_comment]"><?=$this->dish['chef_comment']?></textarea>
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+                        <tr>
+				<td class="firstrow">Wine Pairing:</td>
+				<td>
+					<textarea name="data[wine_pairing]"><?=$this->dish['wine_pairing']?></textarea>
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+                        <tr class="header">
+				<th width="125" class="first">Pricing</th>
+				<th width="575"></th>
+				<th class="lastrow"></th>
+			</tr>
+                        <tr>
+				<td class="firstrow">Costing:</td>
+				<td>
+					$ <input type="text" name="data[cost]" value="<?=$this->dish['cost']?>">
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+                        <tr>
+				<td class="firstrow">Sale Price:</td>
+				<td>
+					$ <input type="text" name="data[price]" value="<?=$this->dish['price']?>">
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+                        <tr>				
+                                <td class="firstrow">Price Scale:</td>
+				<td>
+                                    <select id="season" name="data[price_scale]">
+                                        <option label="price_scale" value="cheap">$-cheap</option>
+                                        <option label="price_scale" value="moderate">$$-moderate</option>
+                                        <option label="price_scale" value="expensive">$$$-expensive</option>
+                                    </select>
+				</td>
+                                <td class="lastrow"></td>
+			</tr>
+                        <tr class="header">
+				<th width="125" class="first">Other</th>
+				<th width="575"></th>
+				<th class="lastrow"></th>
+			</tr>
+			<tr>
+				<td class="firstrow">Date first offered:</td>
+				<td>
+					<input type="text" name="data[start_date]" class="date-pick" value="<?=$this->menu['start_date']?>" autocomplete="off">
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+			<tr>
+				<td class="firstrow">Date end offered:</td>
+				<td>
+					<input type="text" name="data[end_date]" class="date-pick" value="<?=$this->menu['end_date']?>" autocomplete="off">
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+			
+			<tr>
+				<td class="firstrow">Status:</td>
+				<td>
+					<?=$this->formSelect('data[status]', $this->dish['status'], array('id'=>'status'), $this->statuses)?>
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+                        <tr>
+				<td class="firstrow"><input type="submit" value="Save"></td>
+				<td></td>
+				<td class="lastrow"></td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+</form>
+
+<ul class="navigation">
+	<li><a class="btn_back" href="/admin/dishes">Back</a></li>
+	<!--<li><a class="btn_export" href="">Export</a></li>-->
+</ul>
+<div style="clear: both;"></div>
+
+<script type="text/javascript">
+$(document).ready(function() {
+	$("#mediamanagertable tbody tr:even").addClass("shadeon");
+	$("#mediamanagertable tbody tr:odd").addClass("shadeoff");
+});
+</script>

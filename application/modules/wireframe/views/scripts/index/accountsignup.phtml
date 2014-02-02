@@ -1,0 +1,123 @@
+<?php $this->layout()->setLayout('account'); ?>
+<script>
+		$(document).ready(function() {
+				$('#show-paypal').hide();
+			$('#select').change(function() {
+				$('.hide-blocks').hide();
+				$('#show-' + $(this).find('option:selected').attr('id')).show();
+			});
+		});
+		</script>
+
+<div class="int-content">
+	<div class="account-topnav">Sign up for an account
+	</div>
+	<div class="account-wrap">
+		<div class="edit-save">
+			<input type="submit" value="Save">
+		</div>
+		<div class="account-right">
+			<form action="/wireframe/index/accountinfo" method="post">
+				<div class="cols-account">
+					<div class="col-two first">
+						<div class="row"><label>Email:</label> <input type="text" value=""></div>
+						<div class="row"><label>Type it again:</label> <input type="text" value=""></div>
+						<div class="row"><label>Password:</label> <input type="password" value=""></div>
+						<div class="row"><label>Type it again:</label> <input type="password" value=""></div>
+						<div class="row"><label>In what city were you born?:</label> <input type="text" value=""></div>
+						<h3>Personal Information </h3>
+						<div class="row"><label>First Name:</label> <input type="text" value=""></div>
+						<div class="row"><label>Last Name:</label> <input type="text" value=""></div>
+						<div class="row"><label> Phone 1:</label> <input type="text" value=""></div>
+						<div class="row"><label>Phone 2 <em>(opt.)</em>:</label> <input type="text" value=""></div>
+						<div class="row"><label>Birthday <em>(opt.)</em>:</label> <input type="text" value=""></div>
+						<h3>Delivery Address</h3>
+						<div class="row"><label>Address 1:</label>  <input type="text" value=""></div>
+						<div class="row"><label>Address 2:</label>   <input type="text" value=""></div>
+						<div class="row">
+							<div class="city inline-fields">
+								<label>City:</label>
+								<input type="text" value="">
+							</div>
+							<div class="zip  inline-fields"><label>Zip:</label> <input type="text" value=""></div>
+							<div class="zip  inline-fields"><label>State:</label> <input type="text" value=""></div>
+						</div>
+						<h3>Billing Address <br /> <input type="checkbox" style="width:15px;" checked> Same as delivery address</h3>
+						<div class="row"><label>Address 1:</label>  <input type="text" value=""></div>
+						<div class="row"><label>Address 2:</label>   <input type="text" value=""></div>
+						<div class="row">
+							<div class="city inline-fields">
+								<label>City:</label>
+								<input type="text" value="New York">
+							</div>
+							<div class="zip  inline-fields"><label>Zip:</label> <input type="text" value=""></div>
+							<div class="zip  inline-fields"><label>State:</label> <input type="text" value=""></div>
+						</div>
+					</div>
+					<div class="col-two">
+						<div class="row"><label class="wide">Do you have a doorman?</label> <select><option>No</option><option>Yes</option></select></div>
+						<div class="row"><strong>Special Delivery Instructions</strong></div>
+						<div class="row textarea-row"><textarea></textarea></div>
+						<div class="row checkbox-row"><input type="checkbox" checked> I agree to the Food Allergies Disclaimer</div>
+						<h3>Delivery Reminder Emails</h3>
+						<div class="row checkbox-row"><input type="radio" name="delivery-day" value="oneday">  1 Day Before delivery</div>
+						<div class="row checkbox-row"><input type="radio" name="delivery-day" value="sameday">  adelivery day</div>
+						<div class="row"><label>Email 1:</label> <input type="text" value=""></div>
+						<div class="row"><label>Email 2:</label> <input type="text" value=""></div>
+						<h3>Payment Information</h3>
+						<div class="row">
+						<label>Payment Method:</label>
+						<select id="select"> 
+							<option id="paypal">PayPal</option>
+							<option id="credit-card" selected>Credit Card</option>
+						</select>
+					</div>
+					<div id="show-paypal" class="hide-blocks">
+						<div class="row"><label>PayPal Account ID:</label> <input type="text" value="dan@testfield.com"></div>
+					</div>
+					<div id="show-credit-card" class="hide-blocks">
+						<div class="row">
+							<label>Card Type:</label>
+							<select>
+								<option>Amex</option>
+								<option>Visa</option>
+								<option>MasterCard</option>
+								<option>Discovery</option>
+							</select>
+						</div>
+						<div class="row"><label>Credit Card Number:</label> <input type="text" value=""></div>
+						<div class="row">
+							<label>Expiration Date</label>
+							<select>
+								<option>Month</option>
+								<option>01</option>
+								<option>02</option>
+								<option>03</option>
+								<option>04</option>
+								<option>05</option>
+								<option>06</option>
+								<option selected>07</option>
+								<option>08</option>
+								<option>09</option>
+								<option>10</option>
+								<option>11</option>
+								<option>12</option>
+							</select>
+							<select>
+								<option>Year</option>
+								<option>11</option>
+								<option selected>12</option>
+								<option>13</option>
+								<option>14</option>
+								<option>15</option>
+							</select>
+							<div class="cvv  inline-fields"><label>CVV:</label> <input type="text"></div>
+
+					</div>
+				</div>
+		</div>
+	</div>
+	</form>
+</div>
+</div>
+</div>

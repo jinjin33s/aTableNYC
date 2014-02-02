@@ -1,0 +1,122 @@
+
+<style>
+    #mediamanagertable td.cost {color: #FFFFFF;}  
+</style>
+<h2>Order Detail</h2>
+<ul class="navigation">
+	<li><a class="btn_back" href="/admin/orders">Back</a></li>
+	<!--<li><a class="btn_export" href="">Export</a></li>-->
+</ul>
+<div style="clear: both;"></div>
+<a href="/admin/orders/edit/id/<?=$this->id?>" onclick="window.open('/admin/orders/print/id/<?=$this->id?>','', 'width=850, location=no, menubar=no, status=no,toolbar=no, scrollbars=yes, resizable=no'); return false">
+    print
+</a> 
+<form id="userForm" method="post" action="" enctype="multipart/form-data">
+<div class="datatable">
+	<table id="mediamanagertable">
+		<thead>  
+			<tr class="header">
+				<th class="first">Delivery date</th>
+                                <td align="right" width="30" class="cost">Cost</td>
+                                <th></th>
+                                <th>Qty</th>
+                                <th class="lastrow">Item</th>
+			</tr>
+		</thead>
+		<tfoot>
+			<tr class="footer">
+				<td colspan="6">&nbsp;</td>
+			</tr>
+		</tfoot>
+                
+		<tbody>
+                    <?php
+			$shade = true;
+                        $date = '';
+			foreach($this->order_info as $key => $val) {
+				if($shade)
+					$class = 'shadeoff';
+				else
+					$class = 'shadeon';
+				$shade = !$shade;
+                    ?>
+                        <tr class="<?=$class?>">
+                                <td class="firstrow"><? if($val['date']!=$date){ echo $val['date'];}else{}?></td>
+                                <td align="right">$ <? echo number_format($val['price']*$val['qty'],2)?></td>
+                                <th></th>
+                                <th><?=$val['qty']?></th>
+                                <th class="lastrow"><?=$val['item_name']?></th>
+                        </tr>
+                    <?php
+                        $date = $val['date'];
+                    }
+                    ?>
+                        <tr class="header">
+				<th class="first">Total</th>
+				<th></th>
+                                <th></th>
+                                <th></th>
+				<th class="lastrow"></th>
+			</tr>
+                        <tr>
+				<td class="firstrow">Tax:</td>
+                                <td align="right">$ <?=$this->main_order_info['tax']?></td>
+                                <td></td>
+				<td class="lastrow"></td>
+			</tr>
+                        <tr>
+				<td class="firstrow">Total Cost:</td>
+				<td align="right">$ <?=$this->main_order_info['totalcost']?></td>
+                                <td></td>
+				<td class="lastrow"></td>
+			</tr>
+                        <tr>
+				<td class="firstrow"></td>
+				<td align="right"></td>
+                                <td></td>
+				<td>Delivery Address:</td>
+                                <td class="lastrow">
+                                    <?=$this->user_info['dAddr1']?>
+                                    <?=$this->user_info['dAddr2']?>
+                                    <?=$this->user_info['dCity']?></br>
+                                    <?=$this->user_info['dState']?>
+                                    <?=$this->user_info['dZip']?>                                     
+                                </td>
+			</tr>
+                        <tr>
+				<td class="firstrow"></td>
+				<td align="right"></td>
+                                <td></td>
+                                <td>Return Address:</td>
+				<td class="lastrow">555 Main Street, New York, </br>NY 10010 Tel: 888-555-1234</td>
+			</tr>
+                        <tr class="header">
+				<th class="first"></th>
+				<th></th>
+                                <th></th>
+                                <th></th>
+				<th class="lastrow"></th>
+			</tr>
+                        <tr>
+				<td class="firstrow">Status:</td>
+				<td>
+                                    <?=$this->formSelect('data[status]', $this->main_order_info['status'], array('id'=>'status'), $this->statuses)?>
+                                </td>
+                                <td>
+                                    <input type="submit" value="Save">
+                                </td>
+				<td class="lastrow">
+                                    <input type="button" value="Print" onclick="window.print()">
+                                </td>
+			</tr>
+                        
+                </tbody>
+	</table>
+</div>
+</form>
+
+<ul class="navigation">
+	<li><a class="btn_back" href="/admin/orders">Back</a></li>
+	<!--<li><a class="btn_export" href="">Export</a></li>-->
+</ul>
+<div style="clear: both;"></div>

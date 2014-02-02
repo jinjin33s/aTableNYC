@@ -1,0 +1,489 @@
+<h2>View Dish</h2>
+<ul class="navigation">
+        <li>
+            <a href="/admin/dishes/edit/id/<?=$this->dish['id']?>">
+                <input type="image" src="/images/admin/cny_btn_edit.png" name="edit" width="22" height="22"/>
+            </a>
+        </li>        
+	<li><a class="btn_back" href="/admin/dishes">Back</a></li>
+	<!--<li><a class="btn_export" href="">Export</a></li>-->
+</ul>
+<div style="clear: both;"></div>
+
+<div class="datatable">
+	<table id="mediamanagertable">
+		<thead>
+                        <tr class="header">
+				<th width="175" class="first">Dish# <?=$this->dish['id']?></th>
+				<th width="575"></th>
+				<th class="lastrow"></th>
+			</tr>			
+		</thead>
+		<tfoot>
+			<tr class="footer">
+				<td colspan="4">&nbsp;</td>
+			</tr>
+		</tfoot>
+		<tbody>
+			<tr>
+				<td class="firstrow">Name:</td>
+				<td>
+					<?=$this->dish['name']?>
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+			<tr>
+				<td class="firstrow">Chef:</td>
+				<td>   
+                                        <?php 
+                                        echo $this->dish['chef_category'];
+//                                        foreach($this->chef_categories as $cart_key => $val){ 
+//                                        if($cart_key == $this->dish['chef_category_id']) {
+//                                        echo $val;} }
+                                         ?> 
+                                </td>
+				<td class="lastrow"></td>
+                        </tr>
+			<tr>
+				<td class="firstrow">Description:</td>
+				<td>
+					<?=$this->dish['description']?>
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+			<tr>
+				<td class="firstrow">Dish Category:</td>
+				<td>
+                                        <?php 
+                                        echo $this->dish['dish_category'];
+//                                        foreach($this->dish_categories as $cart_key => $val){ 
+//                                        if($cart_key == $this->dish['dish_category_id']) {
+//                                        echo $val;} }
+                                        ?>
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+			<tr>
+				<td class="firstrow">Food Category:</td>
+				<td>
+                                        <?php 
+                                        echo $this->dish['food_category_id'];
+//                                        foreach($this->food_categories as $cart_key => $val){ 
+//                                        if($cart_key == $this->dish['food_category_id']) {
+//                                        echo $val;} }
+                                        ?>
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+			<tr>
+				<td class="firstrow">Season :</td>
+				<td>
+                                        <?php 
+                                        echo $this->dish['season'];
+//                                        foreach($this->season as $cart_key => $val){ 
+//                                        if($cart_key == $this->dish['season']) {
+//                                        echo $val;} }
+                                        ?> 
+                                </td>
+				<td class="lastrow"></td>
+			</tr>
+                        <tr>
+				<td class="firstrow">Cuisine Origin :</td>
+				<td>
+                                    <?=$this->dish['cuisine']?>                                 
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+<!--			<tr>
+				<td class="firstrow">Vegetarian :</td>
+				<td>                          
+                                    <?=$this->dish['vegetarian']?>
+                                                                    
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+			<tr>
+				<td class="firstrow">Vegan :</td>
+				<td>
+                                    <?=$this->dish['vegan']?>
+				</td>
+				<td class="lastrow"></td>
+			</tr>-->
+                        <tr>
+				<td class="firstrow">To be consumed cold :</td>
+				<td>
+                                    <?=$this->dish['cold']?>
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+<!--                        <tr>
+				<td class="firstrow">Allergens:</td>
+				<td>
+                                    <?php
+                                    $allergen = $this->dish['allergen_category_id'];
+                                    $totalNum = count($this->allergen_categories);                                    
+                                    $allVal = explode(',', $allergen);                                     
+                                    $allNum = count($allVal);
+                                    for($i=0; $i<$totalNum; $i++){
+                                        if($i < $allNum){                                         
+                                        }else{
+                                            $allVal[$i] = '';
+                                        }}
+                                    ?>                                     
+                                    <?php foreach($this->allergen_categories as $cart_key => $val) { 
+                                            $flag = false;    
+                                            for($y=0; $y<$totalNum; $y++){
+                                                    if($cart_key == $allVal[$y]){
+                                                       $flag=true; 
+                                                    }
+                                                }   ?>
+                                    <?php   if($flag == true){    ?>
+                                    <?php   echo $val." |"; ?>                                    
+                                    <?php   }} ?>
+                                    
+				</td>
+				<td class="lastrow"></td>
+			</tr>-->
+                        <tr>
+				<td class="firstrow">Can be frozen :</td>
+				<td>
+					<?=$this->dish['frozen']?>
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+                        <tr>
+				<td class="firstrow">Cal per serving :</td>
+				<td>
+                                        <?=$this->dish['calories']?>                               
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+                        <tr>
+				<td class="firstrow">Adult Serving Size (gram) :</td>
+				<td>
+                                    <?=$this->dish['serving_size']?>                          
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+                        <tr>
+				<td class="firstrow">Other nutrition facts:</td>
+				<td>
+					<?=$this->dish['nutrition_facts']?>
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+                        <tr>
+				<td class="firstrow">Reheating Instructions:</td>
+				<td>
+					<?=$this->dish['reheat_instructions']?>
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+                        <tr>
+				<td class="firstrow">Nutritionist Comment:</td>
+				<td>
+					<?=$this->dish['nutritionist_comment']?>
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+                        <tr>
+				<td class="firstrow">Chef Comment:</td>
+				<td>
+					<?=$this->dish['chef_comment']?>
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+                        <tr>
+				<td class="firstrow">Wine Pairing:</td>
+				<td>
+					<?=$this->dish['wine_pairing']?>
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+                        <tr class="header">
+				<th width="125" class="first">Preparation</th>
+				<th width="575"></th>
+				<th class="lastrow"></th>
+			</tr>
+                        <tr>
+				<td class="firstrow"># Servings:</td>
+				<td>
+					<?=$this->dish['servings']?>
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+                        <tr>
+				<td class="firstrow">Prep Time (min):</td>
+				<td>
+					<input type="hidden" name="data[prep_time]" class="calc" size="62" value="<?=$this->dish['prep_time']?>">
+                                        <?=$this->dish['prep_time']?>
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+                        <tr>
+				<td class="firstrow">Cooking Time (min):</td>
+				<td>
+					<input type="hidden" name="data[cooking_time]" class="calc" size="62" value="<?=$this->dish['cooking_time']?>">
+                                        <?=$this->dish['cooking_time']?>
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+                        <tr>
+				<td class="firstrow">Cooling Time (min):</td>
+				<td>
+					<input type="hidden" name="data[cooling_time]" class="calc" size="62" value="<?=$this->dish['cooling_time']?>">
+                                        <?=$this->dish['cooling_time']?>
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+                        <tr>
+				<td class="firstrow">Other Time (min):</td>
+				<td>
+					<input type="hidden" name="data[other_time]" class="calc" size="62" value="<?=$this->dish['other_time']?>">
+                                        <?=$this->dish['other_time']?>
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+                        <tr>
+				<td class="firstrow">Total Time (min):</td>
+				<td>
+					<span id="total"><?=$this->dish['total_time']?></span> 
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+                        <tr>
+				<td class="firstrow">Appliances needed :</td>
+				<td>
+                                    <?php
+                                    $appliance = $this->dish['appliance_category_id'];
+                                    $totalNum = count($this->appliance_categories);                                    
+                                    $appVal = explode(',', $appliance);                                     
+                                    $appNum = count($appVal);
+                                    for($i=0; $i<$totalNum; $i++){
+                                        if($i < $appNum){                                         
+                                        }else{
+                                            $appVal[$i] = '';
+                                        }}
+                                    ?>                                     
+                                    <?php foreach($this->appliance_categories as $cart_key => $val) { 
+                                            $flag = false;    
+                                            for($y=0; $y<$totalNum; $y++){
+                                                    if($cart_key == $appVal[$y]){
+                                                       $flag=true; 
+                                                    }
+                                                }   ?>
+                                    <?php   if($flag == true){    ?>
+                                    <?php   echo $val." |"; ?>                                    
+                                    <?php   }} ?>
+                                </td>
+				<td class="lastrow"></td>
+			</tr>
+                        <tr>
+				<td class="firstrow">Prep work:</td>
+				<td>
+                                        <?=$this->dish['prep_work']?>
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+                        <tr>
+				<td class="firstrow">Procedures:</td>
+				<td>
+					<?=$this->dish['procedures']?>
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+                        <tr class="header">
+				<th width="125" class="first">Pricing</th>
+				<th width="575"></th>
+				<th class="lastrow"></th>
+			</tr>
+                        <tr>
+				<td class="firstrow">Sale Price:</td>
+				<td>
+					$ <?=$this->dish['price']?>
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+                        <tr>				
+                                <td class="firstrow">Price Scale:</td>
+				<td>
+                                    <?php foreach($this->price_scale as $cart_key => $val){ ?>
+                                    <?php if($cart_key == $this->dish['price_scale']) {?> 
+                                    <?php echo $val;} }?> 
+                                </td>
+                                <td class="lastrow"></td>
+			</tr>
+                        <tr class="header">
+				<th width="125" class="first">Allergens</th>
+				<th width="575"></th>
+				<th class="lastrow"></th>
+			</tr>
+                        <tr>
+				<td class="firstrow">Allergens:</td>
+				<td>
+					<?php
+                                            foreach($this->allergenList as $cart_key => $val){
+                                                if($val['allergen']){
+                                                    echo $val['allergen'].',';
+                                                }
+                                            }
+                                        ?>
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+                        <tr class="header">
+				<th width="125" class="first">Other</th>
+				<th width="575"></th>
+				<th class="lastrow"></th>
+			</tr>
+                        <tr>
+				<td class="firstrow">Date first offered:</td>
+				<td>
+					<?= $sdate = $this->dish['start_date']?>
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+			<tr>
+				<td class="firstrow">Date end offered:</td>
+				<td>
+					<?= $edate = $this->dish['end_date']?>
+				</td>
+				<td class="lastrow"></td>
+			</tr>  
+                        <tr>
+				<td class="firstrow"># of Weeks on Menu YTD:</td>
+				<td>
+                                        <?php 
+                                            $sdate = $this->dish['start_date'];
+                                            $edate = $this->dish['end_date'];
+                                            
+                                            $dateSplit = explode("-", $sdate); 
+                                            $startDate = mktime(0, 0, 0, $dateSplit[1], $dateSplit[2], $dateSplit[0]);
+                                            
+                                            $dateSplit = explode("-", $edate); 
+                                            $endDate   = mktime(0, 0, 0, $dateSplit[1], $dateSplit[2], $dateSplit[0]);
+                                            
+                                            $nrSeconds = $endDate - $startDate;
+                                            
+                                            $weeks =  floor($nrSeconds / 604800); 
+                                            //echo $days = $edate - $sdate;
+                                                
+                                            
+                                        ?>
+					<?=$weeks?>
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+                        <tr>
+				<td class="firstrow">Status:</td>
+				<td>
+                                        <?php foreach($this->statuses as $cart_key => $val){ ?>
+                                        <?php if($cart_key == $this->dish['status']) {?> 
+                                        <?php echo $val;} }?> 
+                                </td>
+				<td class="lastrow"></td>
+			</tr>
+		</tbody>
+	</table>
+    
+<!--    <div class="datatable">
+    <h2>Allergens</h2>
+    <table id="mediamanagertable1">   
+        <tr>
+            <td class="firstrow">Allergens:</td>
+            <td>
+                                    <input type="text" name="data[allergen]" value="<?=$this->dish['allergen_category_id']?>">
+                <?php
+                $allergen = $this->dish['allergen_category_id'];
+                $totalNum = count($this->allergen_categories);                                    
+                $allVal = explode(',', $allergen);                                     
+                $allNum = count($allVal);
+                for($i=0; $i<$totalNum; $i++){
+                    if($i < $allNum){                                         
+                    }else{
+                        $allVal[$i] = '';
+                    }}
+                ?>                                     
+                <?php foreach($this->allergen_categories as $cart_key => $val) { 
+                        $flag = false;    
+                        for($y=0; $y<$totalNum; $y++){
+                                if($cart_key == $allVal[$y]){
+                                   $flag=true; 
+                                }
+                            }   ?>
+                <?php   if($flag == true){    ?>
+                <?php   echo $this->formCheckbox('data[allergen_category_id][]', $cart_key, array('checked' => true)) ?> <?=$val;?>                                    
+                <?php   }else{?>
+                <?php   echo $this->formCheckbox('data[allergen_category_id][]', $cart_key, array('checked' => false)) ?> <?=$val;?>
+                <?php   }} ?>
+
+            </td>
+            <td class="lastrow"></td>
+        </tr>
+        </table>
+    </div>-->
+    
+    <h2>Ingredient</h2>
+    <table id="mediamanagertable1">        
+            <input type="hidden" name="dish_id" value="<?=$this->dish['id']?>">        
+            <tbody>                
+                <?php
+                    $id = $this->dish['id'];
+                    $tab = 'need';
+                    foreach ($this->items[$id] as $item){
+                        if (isset($item['ingredient'])) 
+                        {                            
+                            if ($tab == 'need'){
+                ?>                       
+                <thead>
+                    <tr class="header">
+                        <th class="first">Ingredient</th>                        
+                        <th>Quantity</th>
+                        <th>Unit</th>
+                        <th>Allergen</th>
+                        <th class="last action">Ref</th>
+                    </tr>
+                </thead>
+                <?php 
+                    $tab = 'used';
+                      } 
+                ?>
+                    <tr>
+                        <td>
+                            <?=$item['ingredient']?>  
+                        </td>                        
+                        <td>
+                            <?=$item['quantity']?>
+                        </td>                        
+                        <td>
+                            <?=$item['name']?>
+                        </td>
+                        <td>
+                            <?=$item['allergen']?>
+                        </td>
+                        <td>
+                            <?=$item['ref']?>  
+                        </td>                        
+                    </tr>
+               <?php }
+                    }
+                    ?>
+            </tbody>    
+    </table>
+</div>
+
+<ul class="navigation">
+	<li><a class="btn_back" href="/admin/dishes">Back</a></li>
+	<!--<li><a class="btn_export" href="">Export</a></li>-->
+</ul>
+<div style="clear: both;"></div>
+
+<script type="text/javascript">
+$(document).ready(function() {
+	$("#mediamanagertable tbody tr:even").addClass("shadeon");
+	$("#mediamanagertable tbody tr:odd").addClass("shadeoff");
+        
+        $("#mediamanagertable1 tbody tr:even").addClass("shadeon");
+	$("#mediamanagertable1 tbody tr:odd").addClass("shadeoff");
+});
+</script>

@@ -1,0 +1,178 @@
+<h2>View Dish</h2>
+<ul class="navigation">
+	<li><a class="btn_back" href="/admin/dishes">Back</a></li>
+	<!--<li><a class="btn_export" href="">Export</a></li>-->
+</ul>
+<div style="clear: both;"></div>
+
+<div class="datatable">
+	<table id="mediamanagertable">
+		<thead>
+			<tr class="header">
+				<th width="125" class="first"><?=$this->dish['name']?></th>
+				<th width="575"></th>
+				<th class="lastrow"></th>
+			</tr>
+		</thead>
+		<tfoot>
+			<tr class="footer">
+				<td colspan="4">&nbsp;</td>
+			</tr>
+		</tfoot>
+		<tbody>
+			<tr>
+				<td class="firstrow">Name:</td>
+				<td>
+					<?=$this->dish['name']?>
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+			<tr>
+				<td class="firstrow">Reference Code:</td>
+				<td>
+					<?=$this->dish['reference_code']?>
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+			<tr>
+				<td class="firstrow">Description:</td>
+				<td>
+					<?=$this->dish['description']?>
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+			<tr>
+				<td class="firstrow">Dish Category:</td>
+				<td>
+					<?=$this->dish_categories[$this->dish['dish_category']]?>
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+			<tr>
+				<td class="firstrow">Food Category:</td>
+				<td>
+					<?=$this->food_categories[$this->dish['food_category']]?>
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+			<tr>
+				<td class="firstrow">Ingredients:</td>
+				<td>
+					<?=$this->dish['ingredients']?>
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+			<tr>
+				<td class="firstrow">Servings:</td>
+				<td>
+					<?=$this->dish['servings']?>
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+			<tr>
+				<td class="firstrow">Preperation Time:</td>
+				<td>
+					<?=$this->dish['prep_time']?>
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+			<tr>
+				<td class="firstrow">Preperation Instructions:</td>
+				<td>
+					<?=$this->dish['prep_instructions']?>
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+			<tr>
+				<td class="firstrow">Nutritional Analysis:</td>
+				<td>
+					<?=$this->dish['nutrition']?>
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+			<tr>
+				<td class="firstrow">Calories:</td>
+				<td>
+					<?=$this->dish['calories']?>
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+			<tr>
+				<td class="firstrow">Allergens:</td>
+				<td>
+					<?=$this->dish['allergens']?>
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+			<tr>
+				<td class="firstrow">Dietician Comment:</td>
+				<td>
+					<?=$this->dish['dietician_comment']?>
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+			<tr>
+				<td class="firstrow">Chef Comment:</td>
+				<td>
+					<?=$this->dish['chef_comment']?>
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+			<tr>
+				<td class="firstrow">Reheating Instructions:</td>
+				<td>
+					<?=$this->dish['reheat_instructions']?>
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+			<tr>
+				<td class="firstrow">Suggested Combination:</td>
+				<td>
+					<?=$this->dish['suggested_combination']?>
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+			<tr>
+				<td class="firstrow">Wine Pairing:</td>
+				<td>
+					<?=$this->dish['wine_pairing']?>
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+			<tr>
+				<td class="firstrow">Costing:</td>
+				<td>
+					$ <?=$this->dish['cost']?>
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+			<tr>
+				<td class="firstrow">Price:</td>
+				<td>
+					$ <?=$this->dish['price']?>
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+			<tr>
+				<td class="firstrow">Status:</td>
+				<td>
+					<?=$this->statuses[$this->dish['status']]?>
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+<ul class="navigation">
+	<li><a class="btn_back" href="/admin/dishes">Back</a></li>
+	<!--<li><a class="btn_export" href="">Export</a></li>-->
+</ul>
+<div style="clear: both;"></div>
+
+<script type="text/javascript">
+$(document).ready(function() {
+	$("#mediamanagertable tbody tr:even").addClass("shadeon");
+	$("#mediamanagertable tbody tr:odd").addClass("shadeoff");
+});
+</script>

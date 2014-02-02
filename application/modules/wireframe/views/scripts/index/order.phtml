@@ -1,0 +1,324 @@
+<?php $this->layout()->setLayout('order'); ?>
+<div id="order-steps" class="step-one">
+						<ul>
+							<li id="menu-step-one">Step 1. Select Dishes</li>
+							<li id="menu-step-two">Step 2. Check Out</li>
+							<li id="menu-step-three">Step 3. Confirm Order</li>
+						</ul>
+					</div>
+					<div class="int-content">
+						<div class="menu-head">
+							<h1>Select Your Dishes for the Week!</h1>
+							<h2>Plan your weekly menu by selecting the items and quantity for each day of the week.</h2>
+							<a href="" class="menunav-next">Next Week</a>
+						</div>
+						<div class="menu-wrap">
+							<form class="menu" action="/wireframe/index/ordertwo" method="post">
+								<table class="menu-table">
+									<tr class="head-row">
+										<th class="lead">Appetizer</th>
+										<th class="col-mon"><span class="day">Monday</span><br>5/24</th>
+										<th class="col-tues"><span class="day">Tuesday</span><br>5/25</th>
+										<th class="col-wed"><span class="day">Wednesday</span><br>5/26</th>
+										<th class="col-thurs"><span class="day">Thursday</span><br>5/27</th>
+										<th class="col-fri"><span class="day">Friday</span><br>5/28</th>
+										<th class="col-sat"><span class="day">Saturday</span><br>5/29</th>
+										<th class="col-sun"><span class="day">Sunday</span><br>5/30</th>
+									</tr>
+									<tr class="selection-row"><td class="option-title"><div class="option">Sample Option Title <a href="/ajax/ajax.html?width=375" class="optpop rounded-corners jTip extendedJtip" id="one" >i</a></div></td>
+										<td class="col-mon"><input type="radio" class="radio"></td>
+										<td class="col-tues"><input type="radio" class="radio"></td>
+										<td class="col-wed"><input type="radio" class="radio"></td>
+										<td class="col-thurs">
+											<div class="qty-wrap">
+												<input type="button" value="+" id="add1" class="add" />
+												<input type="text" length="3" value="1" class="quantity qty" id="qty">
+												<input type="button" value="-" id="minus1" class="minus" />
+											</div>
+										</td>
+										<td class="col-fri"><input type="radio" class="radio"></td>
+										<td class="col-sat"><img src="/images/radio.png" class="radio"></td>  
+										<td class="col-sun"><img src="/images/radio.png" class="radio"></td>
+									</tr>
+									<tr class="selection-row"><td class="option-title"><div class="option">Sample Option Title <a href="/ajax/ajax.html?width=375" class="optpop rounded-corners jTip extendedJtip" id="two" >i</a></div></td>
+										<td class="col-mon"><input type="radio" class="radio"></td>
+										<td class="col-tues"><input type="radio" class="radio"></td>
+										<td class="col-wed"><input type="radio" class="radio"></td>
+										<td class="col-thurs"><input type="radio" class="radio"></td>
+										<td class="col-fri"><input type="radio" class="radio"></td>
+										<td class="col-sat"><img src="/images/radio.png" class="radio"></td>  
+										<td class="col-sun"><img src="/images/radio.png" class="radio"></td>
+									</tr>
+									<tr class="selection-row"><td class="option-title"><div class="option">Sample Option Title <a href="/ajax/ajax.html?width=375" class="optpop rounded-corners jTip extendedJtip" id="three" >i</a></div></td>
+										<td class="col-mon"><input type="radio" class="radio"></td>
+										<td class="col-tues"><input type="radio" class="radio"></td>
+										<td class="col-wed"><input type="radio" class="radio"></td>
+										<td class="col-thurs"><input type="radio" class="radio"></td>
+										<td class="col-fri"><input type="radio" class="radio"></td>
+										<td class="col-sat"><img src="/images/radio.png" class="radio"></td>  
+										<td class="col-sun"><img src="/images/radio.png" class="radio"></td>
+									</tr>
+									<tr class="head-row">
+										<th class="lead">Side Dish</th>
+										<th class="col-mon"><span class="day">Monday</span><br>5/24</th>
+										<th class="col-tues"><span class="day">Tuesday</span><br>5/25</th>
+										<th class="col-wed"><span class="day">Wednesday</span><br>5/26</th>
+										<th class="col-thurs"><span class="day">Thursday</span><br>5/27</th>
+										<th class="col-fri"><span class="day">Friday</span><br>5/28</th>
+										<th class="col-sat"><span class="day">Saturday</span><br>5/29</th>
+										<th class="col-sun"><span class="day">Sunday</span><br>5/30</th>
+									</tr>
+									<tr class="selection-row"><td class="option-title"><div class="option">Sample Option Title <a href="/ajax/ajax.html?width=375" class="optpop rounded-corners jTip extendedJtip" id="four" >i</a></div></td>
+										<td class="col-mon"><input type="radio" class="radio"></td>
+										<td class="col-tues"><input type="radio" class="radio"></td>
+										<td class="col-wed"><input type="radio" class="radio"></td>
+										<td class="col-thurs">
+											<div class="qty-wrap">
+												<input type="button" value="+" id="add1" class="add" />
+												<input type="text" length="3" value="1" class="quantity qty" id="qty">
+												<input type="button" value="-" id="minus1" class="minus" />
+											</div>
+										</td>
+										<td class="col-fri"><input type="radio" class="radio"></td>
+										<td class="col-sat"><img src="/images/radio.png" class="radio"></td>  
+										<td class="col-sun"><img src="/images/radio.png" class="radio"></td>
+									</tr>
+									<tr class="selection-row"><td class="option-title"><div class="option">Sample Option Title <a href="/ajax/ajax.html?width=375" class="optpop rounded-corners jTip extendedJtip" id="five" >i</a></div></td>
+										<td class="col-mon"><input type="radio" class="radio"></td>
+										<td class="col-tues"><input type="radio" class="radio"></td>
+										<td class="col-wed"><input type="radio" class="radio"></td>
+										<td class="col-thurs"><input type="radio" class="radio"></td>
+										<td class="col-fri"><input type="radio" class="radio"></td>
+										<td class="col-sat"><img src="/images/radio.png" class="radio"></td>  
+										<td class="col-sun"><img src="/images/radio.png" class="radio"></td>
+									</tr>
+									<tr class="selection-row"><td class="option-title"><div class="option">Sample Option Title <a href="/ajax/ajax.html?width=375" class="optpop rounded-corners jTip extendedJtip" id="six" >i</a></div></td>
+										<td class="col-mon"><input type="radio" class="radio"></td>
+										<td class="col-tues"><input type="radio" class="radio"></td>
+										<td class="col-wed"><input type="radio" class="radio"></td>
+										<td class="col-thurs"><input type="radio" class="radio"></td>
+										<td class="col-fri">
+											<div class="qty-wrap">
+												<input type="button" value="+" id="add1" class="add" />
+												<input type="text" length="3" value="1" class="quantity qty" id="qty">
+												<input type="button" value="-" id="minus1" class="minus" />
+											</div>
+										</td>
+										<td class="col-sat"><img src="/images/radio.png" class="radio"></td>  
+										<td class="col-sun"><img src="/images/radio.png" class="radio"></td>
+									</tr>
+									<tr class="head-row">
+										<th class="lead">Entree</th>
+										<th class="col-mon"><span class="day">Monday</span><br>5/24</th>
+										<th class="col-tues"><span class="day">Tuesday</span><br>5/25</th>
+										<th class="col-wed"><span class="day">Wednesday</span><br>5/26</th>
+										<th class="col-thurs"><span class="day">Thursday</span><br>5/27</th>
+										<th class="col-fri"><span class="day">Friday</span><br>5/28</th>
+										<th class="col-sat"><span class="day">Saturday</span><br>5/29</th>
+										<th class="col-sun"><span class="day">Sunday</span><br>5/30</th>
+									</tr>
+									<tr class="selection-row"><td class="option-title"><div class="option">Sample Option Title <a href="/ajax/ajax.html?width=375" class="optpop rounded-corners jTip extendedJtip" id="seven" >i</a></div></td>
+										<td class="col-mon"><input type="radio" class="radio"></td>
+										<td class="col-tues"><input type="radio" class="radio"></td>
+										<td class="col-wed">
+											<div class="qty-wrap">
+												<input type="button" value="+" id="add1" class="add" />
+												<input type="text" length="3" value="1" class="quantity qty" id="qty">
+												<input type="button" value="-" id="minus1" class="minus" />
+											</div>
+										</td>
+										<td class="col-thurs"><input type="radio" class="radio"></td>
+										<td class="col-fri"><input type="radio" class="radio"></td>
+										<td class="col-sat"><img src="/images/radio.png" class="radio"></td>  
+										<td class="col-sun"><img src="/images/radio.png" class="radio"></td>
+									</tr>
+									<tr class="selection-row"><td class="option-title"><div class="option">Sample Option Title <a href="/ajax/ajax.html?width=375" class="optpop rounded-corners jTip extendedJtip" id="eight" >i</a></div></td>
+										<td class="col-mon"><input type="radio" class="radio"></td>
+										<td class="col-tues"><input type="radio" class="radio"></td>
+										<td class="col-wed"><input type="radio" class="radio"></td>
+										<td class="col-thurs"><input type="radio" class="radio"></td>
+										<td class="col-fri"><input type="radio" class="radio"></td>
+										<td class="col-sat"><img src="/images/radio.png" class="radio"></td>  
+										<td class="col-sun"><img src="/images/radio.png" class="radio"></td>
+									</tr>
+									<tr class="selection-row"><td class="option-title"><div class="option">Sample Option Title <a href="/ajax/ajax.html?width=375" class="optpop rounded-corners jTip extendedJtip" id="nine" >i</a></div></td>
+										<td class="col-mon"><input type="radio" class="radio"></td>
+										<td class="col-tues"><input type="radio" class="radio"></td>
+										<td class="col-wed"><input type="radio" class="radio"></td>
+										<td class="col-thurs"><input type="radio" class="radio"></td>
+										<td class="col-fri">
+											<div class="qty-wrap">
+												<input type="button" value="+" id="add1" class="add" />
+												<input type="text" length="3" value="1" class="quantity qty" id="qty">
+												<input type="button" value="-" id="minus1" class="minus" />
+											</div>
+										</td>
+										<td class="col-sat"><img src="/images/radio.png" class="radio"></td>  
+										<td class="col-sun"><img src="/images/radio.png" class="radio"></td>
+									</tr>
+									<tr class="head-row">
+										<th class="lead">Kid's Menu</th>
+										<th class="col-mon"><span class="day">Monday</span><br>5/24</th>
+										<th class="col-tues"><span class="day">Tuesday</span><br>5/25</th>
+										<th class="col-wed"><span class="day">Wednesday</span><br>5/26</th>
+										<th class="col-thurs"><span class="day">Thursday</span><br>5/27</th>
+										<th class="col-fri"><span class="day">Friday</span><br>5/28</th>
+										<th class="col-sat"><span class="day">Saturday</span><br>5/29</th>
+										<th class="col-sun"><span class="day">Sunday</span><br>5/30</th>
+									</tr>
+									<tr class="selection-row"><td class="option-title"><div class="option">Sample Option Title <a href="/ajax/ajax.html?width=375" class="optpop rounded-corners jTip extendedJtip" id="ten" >i</a></div></td>
+										<td class="col-mon"><input type="radio" class="radio"></td>
+										<td class="col-tues"><input type="radio" class="radio"></td>
+										<td class="col-wed">
+											<div class="qty-wrap">
+												<input type="button" value="+" id="add1" class="add" />
+												<input type="text" length="3" value="1" class="quantity qty" id="qty">
+												<input type="button" value="-" id="minus1" class="minus" />
+											</div>
+										</td>
+										<td class="col-thurs"><input type="radio" class="radio"></td>
+										<td class="col-fri"><input type="radio" class="radio"></td>
+										<td class="col-sat"><img src="/images/radio.png" class="radio"></td>  
+										<td class="col-sun"><img src="/images/radio.png" class="radio"></td>
+									</tr>
+									<tr class="selection-row"><td class="option-title"><div class="option">Sample Option Title <a href="/ajax/ajax.html?width=375" class="optpop rounded-corners jTip extendedJtip" id="eleven" >i</a></div></td>
+										<td class="col-mon"><input type="radio" class="radio"></td>
+										<td class="col-tues"><input type="radio" class="radio"></td>
+										<td class="col-wed"><input type="radio" class="radio"></td>
+										<td class="col-thurs"><input type="radio" class="radio"></td>
+										<td class="col-fri"><input type="radio" class="radio"></td>
+										<td class="col-sat"><img src="/images/radio.png" class="radio"></td>  
+										<td class="col-sun"><img src="/images/radio.png" class="radio"></td>
+									</tr>
+									<tr class="selection-row"><td class="option-title"><div class="option">Sample Option Title <a href="/ajax/ajax.html?width=375" class="optpop rounded-corners jTip extendedJtip" id="twelve" >i</a></div></td>
+										<td class="col-mon"><input type="radio" class="radio"></td>
+										<td class="col-tues"><input type="radio" class="radio"></td>
+										<td class="col-wed"><input type="radio" class="radio"></td>
+										<td class="col-thurs"><input type="radio" class="radio"></td>
+										<td class="col-fri">
+											<div class="qty-wrap">
+												<input type="button" value="+" id="add1" class="add" />
+												<input type="text" length="3" value="1" class="quantity qty" id="qty">
+												<input type="button" value="-" id="minus1" class="minus" />
+											</div>
+										</td>
+										<td class="col-sat"><img src="/images/radio.png" class="radio"></td>  
+										<td class="col-sun"><img src="/images/radio.png" class="radio"></td>
+									</tr>
+								</table>
+							</form>
+						</div>
+						<div class="order-sidebar rounded-corners">
+							<div class="top"><h2>Your Order</h2></div>
+							<div class="mid">
+								<p>Items added from the menu appear below in your current order</p>
+								<form action="/wireframe/index/ordertwo" method="post">
+									<h3>Delivery Date: <span class="deliver-date">Wednesday 5/26</span></h3>
+									<table class="order-sidebar-table">
+										<tr class="order-head">
+											<th class="col-item">Item</th>
+											<th class="col-qty">Qty</th>
+											<th class="col-cost">Cost</th>
+											<th class="col-edit">Edit</th>
+										</tr>
+										<tr>
+											<td valign="top">Sample item Option Title Long Name</td>
+											<td valign="top">2</td>
+											<td valign="top">$10.00</td>
+											<td valign="top"><a href=""><img src="/images/edit-button.png"></a></td>
+										</tr>
+										<tr>
+											<td valign="top">Sample item Option Title Long Name</td>
+											<td valign="top">2</td>
+											<td valign="top">$10.00</td>
+											<td valign="top"><a href=""><img src="/images/edit-button.png"></a></td>
+										</tr>
+									</table>
+									<h3>Delivery Date: <span class="deliver-date">Friday 5/28</span></h3>
+									<table class="order-sidebar-table">
+										<tr class="order-head">
+											<th class="col-item">Item</th>
+											<th class="col-qty">Qty</th>
+											<th class="col-cost">Cost</th>
+											<th class="col-edit">Edit</th>
+										</tr>
+										<tr>
+											<td valign="top">Sample item Option Title Long Name</td>
+											<td valign="top">2</td>
+											<td valign="top">$10.00</td>
+											<td valign="top"><a href=""><img src="/images/edit-button.png"></a></td>
+										</tr>
+										<tr>
+											<td valign="top">Sample item Option Title Long Name</td>
+											<td valign="top">2</td>
+											<td valign="top">$10.00</td>
+											<td valign="top"><a href=""><img src="/images/edit-button.png"></a></td>
+										</tr>
+									</table>
+									<table class="order-sidebar-table subtotal">
+										<tr class="order-head subtotal">
+											<th class="col-item">Sub-Total</th>
+											<th class="col-qty"></th>
+											<th class="col-cost">$38.00</th>
+											<th class="col-edit"></th>
+										</tr>
+										<tr>
+											<td valign="top">Delivery Fee</td>
+											<td valign="top"></td>
+											<td valign="top">$10.00</td>
+											<td valign="top"></td>
+										</tr>
+									</table>
+									<div class="order-submit">
+										<input type="submit" value="Submit Order">
+									</div>
+									<p>Delivery and Order Terms and Policies go here. Sample text only.</p>
+								</form>
+							</div>
+							<div class="bottom"></div>
+						</div>
+					</div>
+
+<script type="text/javascript">
+$(document).ready(function(){
+	$(".radio").removeAttr("checked");
+	$(".qty").val("1");
+
+	$(".radio").bind("click",onOff);
+
+	$(".add").click(add);
+	$(".minus").click(minus);
+});
+
+function onOff() {
+	if ($(this).attr("checked") == "checked") {
+		$(this).parent().prepend('<div class="qty-wrap"><input type="button" value="+" class="add" /><input type="text" length="3" value="1" class="quantity qty" name="qty"><input type="button" value="-" class="minus" /></div>');
+
+		$(this).parent().find(".add").bind("click",add);
+		$(this).parent().find(".minus").bind("click",minus);
+
+		$(this).remove();
+	}
+}
+
+function add() {
+	var currentVal = parseInt($(this).next(".qty").val());
+	if (currentVal != NaN) {
+		$(this).next(".qty").val(currentVal + 1);
+	}
+}
+
+function minus() {
+	var currentVal = parseInt($(this).prev(".qty").val());
+	if (currentVal != NaN) {
+		$(this).prev(".qty").val(currentVal - 1);
+	}
+
+	if ($(this).parent().find(".qty").val() <= 0) {
+		$(this).parent().parent().prepend('<input type="radio" class="radio">');
+		$(this).parent().parent().find(".radio").bind("click",onOff);
+
+		$(this).parent().parent().find(".qty-wrap").remove();
+	}
+}
+</script>

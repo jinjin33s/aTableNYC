@@ -1,0 +1,147 @@
+<h2>View Menu</h2>  
+<ul class="navigation">
+    <li><a href="/admin/menus/copy/id/<?=$this->menu['id']?>">Duplicate Menu</a></li>
+    <li><a class="btn_back" href="/admin/menus/full">Back</a></li>
+	
+</ul>
+<div style="clear: both;"></div>
+
+<div class="datatable">
+	<table id="mediamanagertable">
+		<thead>
+			<tr class="header">
+				<th width="125" class="first">Menu# <?=$this->menu['id']?></th>
+				<th width="575"></th>
+				<th class="lastrow"></th>
+			</tr>
+		</thead>
+		<tfoot>
+			<tr class="footer">
+				<td colspan="4">&nbsp;</td>
+			</tr>
+		</tfoot>
+		<tbody>  
+                        <tr>
+				<td class="firstrow">Created By:</td>
+				<td>
+					<?=$this->menu['author']?>
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+			<tr>
+				<td class="firstrow">Start Date:</td>
+				<td>
+					<?=$this->menu['start_date']?>
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+			<tr>
+				<td class="firstrow">End Date:</td>
+				<td>
+					<?=$this->menu['end_date']?>
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+			<tr>
+				<td class="firstrow"># of weeks offered YTD:</td>
+				<td>
+					<?=$this->menu['weeks']?>
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+<!--			<tr>
+				<td class="firstrow">Status:</td>
+				<td>
+					<?=$this->statuses[$this->menu['status']]?>
+				</td>
+				<td class="lastrow"></td>
+			</tr>-->
+                        <tr>
+				<td class="firstrow">Creation Date:</td>
+				<td>
+                                    <?=date("Y-m-d",strtotime($this->menu['created']))?>
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+                        <tr>
+                            <td class="firstrow">Last Active:</td>
+                            <td>
+                                <?=$this->menu['modified']?>
+                            </td>
+                            <td class="lastrow"></td>
+                        </tr>
+		</tbody>
+	</table>
+
+	<?php
+	$cat = "";
+	foreach ($this->items as $item) {
+		if ($cat != $item['category']) {
+			if ($cat != '') echo "</tbody></table>";
+			$cat = $item['category'];
+		?>
+			<h2><?=$item['category']?> Dishes</h2>
+			<table id="mediamanagertable">
+				<thead>
+					<tr class="header">
+                                            <th>no</th>
+                                            <th>name</th>
+                                            <th>date on menu</th>
+                                            <th>YTD</th>
+					</tr>
+				</thead>
+				<tfoot>
+					<tr class="footer">
+						<th>no</th>
+                                                <th>name</th>
+                                                <th>date on menu</th>
+                                                <th>YTD</th>
+					</tr>
+				</tfoot>
+				<tbody>
+		<?php
+		}
+		?>
+					<tr>
+						<td>
+							<?=$item['id']?>
+						</td>
+                                                <td>
+							<?=$item['name']?>
+						</td>
+                                                <td>
+							<?=$item['created']?>
+						</td>
+                                                <td>							
+                                                        <?php
+                                                            $dayDif_item = date('z',strtotime(date("Y-m-d"))) - date('z',strtotime(date("Y-m-d",strtotime($item['modified']))));
+                                                            $numWeeks_item  = intval($dayDif_item / 7)+1;
+                                                            echo $numWeeks_item; 
+                                                            ?>
+						</td>
+					</tr>
+	<?php
+	}
+	if ($cat != '') {
+	?>
+		</tbody>
+	</table>
+	<?php
+	}
+	?>
+</div>
+
+<ul class="navigation">
+	<li><a class="btn_back" href="/admin/menus/full">Back</a></li>
+	<!--<li><a class="btn_export" href="">Export</a></li>-->
+</ul>
+<div style="clear: both;"></div>
+
+<script type="text/javascript">
+    
+$(document).ready(function() {
+    
+	$("#mediamanagertable tbody tr:even").addClass("shadeon");
+	$("#mediamanagertable tbody tr:odd").addClass("shadeoff");
+});
+</script>

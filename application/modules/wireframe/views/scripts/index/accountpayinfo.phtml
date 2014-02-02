@@ -1,0 +1,74 @@
+<?php $this->layout()->setLayout('account'); ?>
+<div class="int-content">
+	<div class="account-topnav"><a href="/wireframe/index/account">My Orders</a> | <a href="/wireframe/index/accountinfo" class="active">My Profile</a>
+	</div>
+	<div class="account-wrap">
+		<script>
+		$(document).ready(function() {
+				$('#show-paypal').hide();
+			$('#select').change(function() {
+				$('.hide-blocks').hide();
+				$('#show-' + $(this).find('option:selected').attr('id')).show();
+			});
+		});
+		</script>
+			<form action="/wireframe/index/accountinfo" method="post">
+				<div class="edit-save">
+					<a href="/wireframe/index/accountinfo">Cancel</a> <input type="submit" value="Save">
+				</div>
+		<div class="account-right"> 
+					<div class="row">
+						<label>Payment Method:</label>
+						<select id="select"> 
+							<option id="paypal">PayPal</option>
+							<option id="credit-card" selected>Credit Card</option>
+						</select>
+					</div>
+					<div id="show-paypal" class="hide-blocks">
+						<div class="row"><label>PayPal Account ID:</label> <input type="text" value="dan@testfield.com"></div>
+					</div>
+					<div id="show-credit-card" class="hide-blocks">
+						<div class="row">
+							<label>Card Type:</label>
+							<select>
+								<option>Amex</option>
+								<option>Visa</option>
+								<option>MasterCard</option>
+								<option>Discovery</option>
+							</select>
+						</div>
+						<div class="row"><label>Credit Card Number:</label> <input type="text" value="************1234"></div>
+						<div class="row">
+							<label>Expiration Date</label>
+							<select>
+								<option>Month</option>
+								<option>01</option>
+								<option>02</option>
+								<option>03</option>
+								<option>04</option>
+								<option>05</option>
+								<option>06</option>
+								<option selected>07</option>
+								<option>08</option>
+								<option>09</option>
+								<option>10</option>
+								<option>11</option>
+								<option>12</option>
+							</select>
+							<select>
+								<option>Year</option>
+								<option>11</option>
+								<option selected>12</option>
+								<option>13</option>
+								<option>14</option>
+								<option>15</option>
+							</select>
+							<div class="cvv  inline-fields"><label>CVV:</label> <input type="text"></div>
+						</div>
+					</div> 
+				</form>
+		</div>
+		</form>
+	</div>
+</div>
+</div>

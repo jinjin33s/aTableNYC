@@ -1,0 +1,46 @@
+<?php
+//ini_set('display_errors','1');
+//error_reporting(E_ALL);
+$members = "";
+$headerNames = array_keys($this->list[0]);
+
+foreach ($headerNames as $k=>$v) {
+	$headers[] = '"'.str_replace("_"," ",strtoupper($v)).'"';
+}
+
+$headers[] .= '"Ingredient;Quantity;UOM|"';
+$header = implode(",",$headers)."\n";
+
+foreach($this->list as $key => $val) {
+	$memberRow = '';        
+         
+        $ingredient_info ='';
+	foreach ($headerNames as $k=>$v) {            
+             
+            $memberRow[] .= '"'.$val[$v].'"'; 
+            $id = $val["id"];
+	}
+        
+        foreach ($this->items as $ke => $va){
+                 if($id == $va['menu_item_id']){
+                    $ingredient = $va['ingredient'];
+                    $quantity   = $va['unit1'];
+                    $name       = $va['name'];
+                    $ingredient_info .= $ingredient.';'.$quantity.';'.$name.'|';
+                 }
+            }
+        $memberRow[] .= '"'.$ingredient_info.'"';  
+        
+	$members .= implode(",",$memberRow)."\n";  
+        
+        
+}
+//echo var_dump($members); die();
+$filename = 'dish'.".csv";
+$out = $header.$members;
+
+header("Content-type: text/plain");
+header("Content-Disposition: attachment; filename=$filename");
+
+echo $out;
+?>

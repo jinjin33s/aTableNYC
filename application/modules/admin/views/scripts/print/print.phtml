@@ -1,0 +1,124 @@
+
+<style>
+    #mediamanagertable td.cost {color: #FFFFFF;}  
+</style>
+<h2>Order Detail</h2>
+<div style="clear: both;"></div>
+<div class="datatable">
+	<table id="mediamanagertable">
+		<thead>  
+			<tr class="header">
+				<th class="first">Delivery date</th>
+                                <td align="right" width="65" class="cost">Cost</td>
+                                <th></th> 
+                                <th>Qty</th>
+                                <th class="lastrow">Item</th>
+			</tr>
+		</thead>
+		<tfoot>
+			<tr class="footer">
+				<td colspan="6">&nbsp;</td>
+			</tr>
+		</tfoot>
+                
+		<tbody>
+                    <?php
+			$shade = true;
+                        $date = '';
+			foreach($this->order_info as $key => $val) {
+				if($shade)
+					$class = 'shadeoff';
+				else
+					$class = 'shadeon';
+				$shade = !$shade;
+                    ?>
+                        <tr class="<?=$class?>">
+                                <td class="firstrow"><? if($val['date']!=$date){ echo $val['date'];}else{}?></td>
+                                <td align="right">$ <? echo number_format($val['price']*$val['qty'],2)?></td>
+                                <th></th>
+                                <th><?=$val['qty']?></th>
+                                <th class="lastrow"><?=$val['item_name']?></th>
+                        </tr>
+                    <?php
+                        $date = $val['date'];
+                    }
+                    ?>
+                        <tr class="header">
+				<th class="first">Total</th>
+				<th></th>
+                                <th></th>
+                                <th></th>
+				<th class="lastrow"></th>
+			</tr>
+                        <tr>
+				<td class="firstrow">Tax:</td>
+                                <td align="right">$ <?=$this->main_order_info['tax']?></td>
+                                <td></td>
+				<td class="lastrow"></td>
+			</tr>
+                        <tr>
+				<td class="firstrow">Total Cost:</td>
+				<td align="right">$ <?=$this->main_order_info['totalcost']?></td>
+                                <td></td>
+                                <td></td>
+				<td class="lastrow"></td>
+			</tr>                        
+                </tbody>
+	</table>
+    
+    <table id="mediamanagertable">
+        <tbody>
+                        <tr class="shadeon">
+				<td class="firstrow">Return Address:</td>
+				<td>
+                                    <?=$this->return_addr_info['addr1']?> <?=$this->return_addr_info['addr2']?></br>
+                                    <?=$this->return_addr_info['city']?>, <?=$this->return_addr_info['state']?> <?=$this->return_addr_info['zip']?></br>
+                                                                        
+                                </td>
+                                <td>Tel: <?=$this->return_addr_info['phone']?></td>
+				<td>Delivery Address:</td>
+                                <td class="lastrow">
+                                    <?=$this->user_info['dAddr1']?>
+                                    <?=$this->user_info['dAddr2']?></br>
+                                    <?=$this->user_info['dCity']?>,
+                                    <?=$this->user_info['dState']?>
+                                    <?=$this->user_info['dZip']?>                                     
+                                </td>
+			</tr>
+<!--                        <tr class="shadeon">
+				<td class="firstrow"></td>
+				<td align="right"></td>
+                                <td></td>
+                                <td>Return Address:</td>
+				<td class="lastrow">
+                                    <?=$this->return_addr_info['addr1']?> <?=$this->return_addr_info['addr2']?></br>
+                                    <?=$this->return_addr_info['city']?>, <?=$this->return_addr_info['state']?> <?=$this->return_addr_info['zip']?></br>
+                                    Tel: <?=$this->return_addr_info['phone']?> 
+                                </td>
+			</tr>-->
+                        <tr class="header">
+				<th class="first"></th>
+				<th></th>
+                                <th></th>
+                                <th></th>
+				<th class="lastrow"></th>
+			</tr>
+                        <tr>
+				<td class="firstrow">Status:</td>
+				<td>
+                                    <?=$this->main_order_info['status']?> 
+                                </td>
+                                <td>
+                                    
+                                </td>
+				<td>
+                                   
+                                </td>
+                                <td class="lastrow">
+                                    <input type="button" value="Print" onclick="window.print()">
+                                </td>
+			</tr>
+                        
+                </tbody>
+	</table>
+</div> 

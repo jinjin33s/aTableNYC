@@ -1,0 +1,98 @@
+<h2>Add Menu</h2>
+<ul class="navigation">
+	<li><a class="btn_back" href="/admin/menus">Back</a></li>
+	<!--<li><a class="btn_export" href="">Export</a></li>-->
+</ul>
+<div style="clear: both;"></div>
+
+<form id="userForm" method="post" action="" enctype="multipart/form-data">
+<div class="datatable">
+    <table id="mediamanagertable">
+        <thead>
+            <tr class="header">
+                <th width="125" class="first"></th>
+                <th width="575"></th>
+                <th class="lastrow"></th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr class="footer">
+                <td colspan="4">&nbsp;</td>
+            </tr>
+        </tfoot>
+        <tbody>
+            <tr>
+                <td class="firstrow">Menu Name:</td>
+                <td>
+                    <input type="text" size="62" name="data[name]" value="<?=$this->menu['name']?>">
+                </td>
+                <td class="lastrow"></td>
+            </tr>
+            <tr>
+                <td class="firstrow">Created By:</td>
+                <td>
+                    <?=$this->author?>
+                </td>
+                <td class="lastrow"></td>
+            </tr>
+                
+            <tr>
+                <td class="firstrow">First Date:</td>
+                <td>
+                    <input type="text" size="62" name="data[start_date]" class="date-pick" value="<?=$this->menu['start_date']?>" autocomplete="off">
+                </td>
+                <td class="lastrow"></td>
+            </tr>
+            <tr>
+                <td class="firstrow">End Date:</td>
+                <td>
+                    <input type="text" size="62" name="data[end_date]" class="date-pick" value="<?=$this->menu['end_date']?>" autocomplete="off">
+                </td>
+                <td class="lastrow"></td>
+            </tr>
+            <tr>
+                <td class="firstrow"># of weeks offered YTD:</td>
+                <td>
+                    <input type="text" STYLE="background-color: #D8D8D8;" size="62" name="data[weeks]" value="<?=$this->menu['weeks']?>" disabled="disabled"/>
+                </td>
+                <td class="lastrow"></td>
+            </tr>
+<!--            <tr>
+                <td class="firstrow">Status:</td>
+                <td>
+                    <?=$this->formSelect('data[status]', $this->menu['status'], array('id'=>'status'), $this->statuses)?>
+                </td>
+                <td class="lastrow"></td>
+            </tr>-->
+            <tr>
+                <td class="firstrow">Last Active:</td>
+                <td>
+                    <input type="text" STYLE="background-color: #D8D8D8;" size="62" name="data[last_active]" class="date-pick" value="<?=$this->menu['last_active']?>" autocomplete="off" disabled="disabled">
+                </td>
+                <td class="lastrow"></td>
+            </tr> 
+                
+                <tr>
+                    <td class="firstrow"><input type="submit" value="Save"></td>
+                    <td></td>
+                    <td class="lastrow"></td>
+                </tr>
+		</tbody>
+    </table>
+</div>
+</form>
+
+<ul class="navigation">
+	<li><a class="btn_back" href="/admin/menus">Back</a></li>
+	<!--<li><a class="btn_export" href="">Export</a></li>-->
+</ul>
+<div style="clear: both;"></div>
+
+<script type="text/javascript">
+$(document).ready(function() {
+	$(".date-pick").datepicker();
+
+	$("#mediamanagertable tbody tr:even").addClass("shadeon");
+	$("#mediamanagertable tbody tr:odd").addClass("shadeoff");
+});
+</script>

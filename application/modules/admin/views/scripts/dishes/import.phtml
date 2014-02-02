@@ -1,0 +1,71 @@
+<h2>Import Dishes</h2>
+<ul class="navigation">
+	<li><a class="btn_back" href="/admin/dishes">Back</a></li>
+	<!--<li><a class="btn_export" href="">Export</a></li>-->
+</ul>
+<div style="clear: both;"></div>
+
+<form id="userForm" method="post" action="" enctype="multipart/form-data">
+    
+<div class="datatable">
+	<table id="mediamanagertable">
+		<thead>
+                        <tr class="header">
+				<th width="125" class="first">Please set of files</th>
+				<th width="575"></th>
+				<th class="lastrow"></th>
+			</tr>			
+		</thead>
+		<tfoot>
+			<tr class="footer">
+				<td colspan="4">&nbsp;</td>
+			</tr>
+		</tfoot>
+		<tbody>
+			<tr>
+				<td class="firstrow"><input type="file" name="datafile" size="40"></input></td>
+                                <td>
+				</td>
+				<td class="lastrow"></td>
+			</tr>                        			
+                        <tr>
+				<td class="firstrow"><input type="submit" value="Send"></td>
+				<td></td>
+				<td class="lastrow"></td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+</form>
+
+<ul class="navigation">
+	<li><a class="btn_back" href="/admin/dishes">Back</a></li>
+	<!--<li><a class="btn_export" href="">Export</a></li>-->
+</ul>
+<div style="clear: both;"></div>
+
+<script type="text/javascript">
+    
+    $(document).ready(function() {
+            $("#mediamanagertable tbody tr:even").addClass("shadeon");
+            $("#mediamanagertable tbody tr:odd").addClass("shadeoff");
+    });
+
+    $(document).ready(function() {
+            $(".date-pick").datepicker();
+
+            $("#mediamanagertable tbody tr:even").addClass("shadeon");
+            $("#mediamanagertable tbody tr:odd").addClass("shadeoff");
+    });
+    
+</script>
+
+<SCRIPT LANGUAGE="JavaScript">
+    
+function popUp(URL) {
+day = new Date();
+id = day.getTime();
+eval("page" + id + " = window.open(URL, '" + id + "', 'toolbar=0,scrollbars=0,location=0,statusbar=0,menubar=0,resizable=0,width=800,height=300,left = 0,top = 0');");
+}
+
+</script>

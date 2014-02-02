@@ -1,0 +1,470 @@
+<head>
+    <link type="text/css" rel="stylesheet" href="/Tooltip/Tooltip.css" />
+    <script type="text/javascript" src="/Tooltip/Tooltip.js"></script> 
+
+<script language="javascript">
+$(document).ready(function(){
+    $('.calc').change(function(){
+        var total = 0;
+        $('.calc').each(function(){
+            if($(this).val() != '')
+            {
+                total += parseInt($(this).val());
+            }
+        });
+        $('#total').html(total);
+    });
+})(jQuery);
+
+</script>
+</head>
+<h2>Add a Dish</h2>
+<ul class="navigation">
+	<li><a class="btn_back" href="/admin/dishes">Back</a></li>
+	<!--<li><a class="btn_export" href="">Export</a></li>-->
+</ul>
+<div style="clear: both;"></div>
+  
+<form id="userForm" method="post" action="" enctype="multipart/form-data">
+    
+<div class="datatable">
+	<table id="mediamanagertable">
+		<thead>
+                        <tr class="header">
+				<th width="125" class="first">Dish Description</th>
+				<th width="575"></th>
+				<th class="lastrow"></th>
+			</tr>			
+		</thead>
+		<tfoot>
+			<tr class="footer">
+				<td colspan="4">&nbsp;</td>
+                                
+
+			</tr>
+		</tfoot>
+		<tbody>
+			<tr>
+				<td>
+                                    <span class="tooltip" onmouseover="tooltip.pop(this, 'The dish name will appear on the front end website (www.atablenyc.com). Our customers will be selecting items based on, amongst others, the name of a dish. The name should not be more than .. characters.')">
+                                        Name :
+                                    </span>
+                                </td>
+				<td>
+					<input type="text" name="data[name]" size="62" value="<?=$this->dish['name']?>">
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+
+                        </div>
+                        <tr>
+                                <td>
+                                    <span class="tooltip" onmouseover="tooltip.pop(this, 'The name of the chef will be used to keep track of who developed this dish.')">
+                                        Chef :
+                                    </span>
+                                </td>
+				<td>
+                                        <?=$this->formSelect('data[chef_category_id]', $this->dish['chef_category_id'], array('id'=>'chef_category_id', 'style'=>'width:190px;', 'class'=>'form-field'), array(""=>"Select")+$this->chef_categories)?>
+				</td>
+				<td class="lastrow"></td>
+                        </tr>
+			<tr>
+				<td class="firstrow">Description :</td>
+				<td>
+					<textarea name="data[description]" rows="5" cols="60"><?=$this->dish['description']?></textarea>
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+			<tr>
+				<td class="firstrow">Dish Category :</td>
+				<td>
+					<?=$this->formSelect('data[dish_category_id]', $this->dish['dish_category_id'], array('id'=>'dish_category_id', 'style'=>'width:190px;', 'class'=>'form-field'), array(""=>"Select")+$this->dish_categories)?>
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+			<tr>
+				<td class="firstrow">Food Category :</td>
+				<td>
+					<?=$this->formSelect('data[food_category_id]', $this->dish['food_category_id'], array('id'=>'food_category_id', 'style'=>'width:190px;', 'class'=>'form-field'), array(""=>"Select")+$this->food_categories)?>
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+                        <tr>
+				<td class="firstrow">Season :</td>
+				<td>
+                                    <?=$this->formSelect('data[season]', $this->dish['season'], array('id'=>'season'), $this->season)?>                                    
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+                        <tr>
+				<td class="firstrow">Cuisine Origin :</td>
+				<td>
+                                    <?=$this->formSelect('data[cuisine]', $this->dish['cuisine'], array('id'=>'cuisine', 'style'=>'width:190px;', 'class'=>'form-field'), array(""=>"Select")+$this->kitchen_categories)?>                                    
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+<!--                        <tr>
+				<td class="firstrow">Vegetarian :</td>
+				<td>                          
+                                    <?php if($this->dish['vegetarian'] == 'yes'){ ?>
+                                    <input type="radio" name="data[vegetarian]" value="yes" checked/>Yes
+                                    <input type="radio" name="data[vegetarian]" value="no"/>No
+                                    <?php }elseif($this->dish['vegetarian'] == 'no'){ ?>
+                                    <input type="radio" name="data[vegetarian]" value="yes"/>Yes
+                                    <input type="radio" name="data[vegetarian]" value="no" checked/>No
+                                    <?php }else{ ?>
+                                    <input type="radio" name="data[vegetarian]" value="yes"/>Yes
+                                    <input type="radio" name="data[vegetarian]" value="no"/>No
+                                    <?php } ?>                                  
+				</td>
+				<td class="lastrow"></td>
+			</tr>-->
+<!--                        <tr>
+				<td class="firstrow">Vegan :</td>
+				<td>
+                                    <?php if($this->dish['vegan'] == 'yes'){ ?>
+                                    <input type="radio" name="data[vegan]" value="yes" checked/>Yes
+                                    <input type="radio" name="data[vegan]" value="no"/>No
+                                    <?php }elseif($this->dish['vegan'] == 'no'){ ?>
+                                    <input type="radio" name="data[vegan]" value="yes"/>Yes
+                                    <input type="radio" name="data[vegan]" value="no" checked/>No
+                                    <?php }else{ ?>
+                                    <input type="radio" name="data[vegan]" value="yes"/>Yes
+                                    <input type="radio" name="data[vegan]" value="no"/>No
+                                    <?php } ?>
+				</td>
+				<td class="lastrow"></td>
+			</tr>-->
+                        <tr>
+				<td class="firstrow">To be consumed cold :</td> 
+				<td>
+                                    <?php if($this->dish['cold'] == 'yes'){ ?>
+                                    <input type="radio" name="data[cold]" value="yes" checked/>Yes
+                                    <input type="radio" name="data[cold]" value="no"/>No
+                                    <?php }elseif($this->dish['cold'] == 'no'){ ?>
+                                    <input type="radio" name="data[cold]" value="yes"/>Yes
+                                    <input type="radio" name="data[cold]" value="no" checked/>No
+                                    <?php }else{ ?>
+                                    <input type="radio" name="data[cold]" value="yes"/>Yes
+                                    <input type="radio" name="data[cold]" value="no"/>No
+                                    <?php } ?>
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+                        <tr>
+				<td class="firstrow">Can be frozen :</td>
+				<td>
+                                    <?php if($this->dish['frozen'] == 'yes'){ ?>
+                                    <input type="radio" name="data[frozen]" value="yes" checked/>Yes
+                                    <input type="radio" name="data[frozen]" value="no"/>No
+                                    <?php }elseif($this->dish['frozen'] == 'no'){ ?>
+                                    <input type="radio" name="data[frozen]" value="yes"/>Yes
+                                    <input type="radio" name="data[frozen]" value="no" checked/>No
+                                    <?php }else{ ?>
+                                    <input type="radio" name="data[frozen]" value="yes"/>Yes
+                                    <input type="radio" name="data[frozen]" value="no"/>No
+                                    <?php } ?>
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+<!--                        <tr>
+				<td class="firstrow">Food Allergens:</td>
+				<td>
+                                    <?php
+                                    $allergen = $this->dish['allergen_category_id'];
+                                    $totalNum = count($this->allergen_categories);                                    
+                                    $allVal = explode(',', $allergen);                                     
+                                    $allNum = count($allVal);
+                                    for($i=0; $i<$totalNum; $i++){
+                                        if($i < $allNum){                                         
+                                        }else{
+                                            $allVal[$i] = '';
+                                        }}
+                                    ?>                                     
+                                    <?php foreach($this->allergen_categories as $cart_key => $val) { 
+                                            $flag = false;    
+                                            for($y=0; $y<$totalNum; $y++){
+                                                    if($cart_key == $allVal[$y]){
+                                                       $flag=true; 
+                                                    }
+                                                }   ?>
+                                    <?php   if($flag == true){    ?>
+                                    <?php   echo $this->formCheckbox('data[allergen_category_id][]', $cart_key, array('checked' => true)) ?> <?= $val; ?>                                    
+                                    <?php   }else{?>
+                                    <?php   echo $this->formCheckbox('data[allergen_category_id][]', $cart_key, array('checked' => false)) ?> <?= $val;?>
+                                    <?php   }} ?>
+                                    
+				</td>
+				<td class="lastrow"></td>
+			</tr>-->
+                        <tr>
+				<td class="firstrow">Cal per serving :</td>
+				<td>
+                                    <input type="text" name="data[calories]" size="62" value="<?=$this->dish['calories']?>">                                    
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+                        <tr>
+				<td class="firstrow">Adult Serving Size (gram) :</td>
+				<td>
+                                    <input type="text" name="data[serving_size]" size="62" value="<?=$this->dish['serving_size']?>">                                    
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+                        <tr>
+				<td class="firstrow">Other nutrition facts:</td>
+				<td>
+					<input type="text" name="data[nutrition_facts]" size="62" value="<?=$this->dish['nutrition_facts']?>">
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+                        <tr>
+				<td class="firstrow">Reheating Instructions:</td>
+				<td>
+					<textarea name="data[reheat_instructions]" rows="5" cols="60"><?=$this->dish['reheat_instructions']?></textarea>
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+                        <tr>
+				<td class="firstrow">Nutritionist Comment:</td>
+				<td>
+                                        <textarea name="data[nutritionist_comment]" rows="5" cols="60"><?=$this->dish['nutritionist_comment']?></textarea>
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+                        <tr>
+				<td class="firstrow">Chef Comment:</td>
+				<td>
+					<textarea name="data[chef_comment]" rows="5" cols="60"><?=$this->dish['chef_comment']?></textarea>
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+                        <tr>
+				<td class="firstrow">Wine Pairing:</td>
+				<td>
+					<textarea name="data[wine_pairing]" rows="5" cols="60"><?=$this->dish['wine_pairing']?></textarea>
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+                        <tr class="header">
+				<th width="125" class="first">Preparation</th>
+				<th width="575"></th>
+				<th class="lastrow"></th>
+			</tr>
+                        <tr>
+				<td class="firstrow"># Servings:</td>
+				<td>
+					<input type="text" name="data[servings]" size="62" value="<?=$this->dish['servings']?>">
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+                        <tr>
+				<td class="firstrow">Prep Time (min):</td>
+				<td>
+					<input type="text" name="data[prep_time]" class="calc" size="62" value="<?=$this->dish['prep_time']?>">
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+                        <tr>
+				<td class="firstrow">Cooking Time (min):</td>
+				<td>
+					<input type="text" name="data[cooking_time]" class="calc" size="62" value="<?=$this->dish['cooking_time']?>">
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+                        <tr>
+				<td class="firstrow">Cooling Time (min):</td>
+				<td>
+					<input type="text" name="data[cooling_time]" class="calc" size="62" value="<?=$this->dish['cooling_time']?>">
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+                        <tr>
+				<td class="firstrow">Other Time (min):</td>
+				<td>
+					<input type="text" name="data[other_time]" class="calc" size="62" value="<?=$this->dish['other_time']?>">
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+                        <tr>
+				<td class="firstrow">Total Time (min):</td>
+				<td>
+					<span id="total"></span> 
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+                        <tr>
+				<td class="firstrow">Appliances needed :</td>
+				<td>
+                                    <?php
+                                    $appliance = $this->dish['appliance_category_id'];
+                                    $totalNum = count($this->appliance_categories);                                    
+                                    $appVal = explode(',', $appliance);                                     
+                                    $appNum = count($appVal);
+                                    for($i=0; $i<$totalNum; $i++){
+                                        if($i < $appNum){                                         
+                                        }else{
+                                            $appVal[$i] = '';
+                                        }}
+                                    ?>                                     
+                                    <?php foreach($this->appliance_categories as $cart_key => $val) { 
+                                            $flag = false;    
+                                            for($y=0; $y<$totalNum; $y++){
+                                                    if($cart_key == $appVal[$y]){
+                                                       $flag=true; 
+                                                    }
+                                                }   ?>
+                                    <?php   if($flag == true){    ?>
+                                    <?php   echo $this->formCheckbox('data[appliance_category_id][]', $cart_key, array('checked' => true)) ?> <?= $val; ?>                                    
+                                    <?php   }else{?>
+                                    <?php   echo $this->formCheckbox('data[appliance_category_id][]', $cart_key, array('checked' => false)) ?> <?= $val;?>
+                                    <?php   }} ?>
+                                </td>
+				<td class="lastrow"></td>
+			</tr>
+                        <tr>
+				<td class="firstrow">Prep work:</td>
+				<td>
+                                        <textarea name="data[prep_work]" rows="5" cols="60"><?=$this->dish['prep_work']?></textarea>
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+                        <tr>
+				<td class="firstrow">Procedures:</td>
+				<td>
+					<textarea name="data[procedures]" rows="5" cols="60"><?=$this->dish['procedures']?></textarea>
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+                        <tr class="header">
+				<th width="125" class="first">Pricing</th>
+				<th width="575"></th>
+				<th class="lastrow"></th>
+			</tr>
+                        <tr>
+				<td class="firstrow">Sale Price:</td>
+				<td>
+					$ <input type="text" name="data[price]" value="<?=$this->dish['price']?>">
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+                        <tr>				
+                                <td class="firstrow">Price Scale:</td>
+				<td>
+                                    <?=$this->formSelect('data[price_scale]', $this->dish['price_scale'], array('id'=>'price_scale'), $this->price_scale)?>                                    
+				</td>
+                                <td class="lastrow"></td>
+			</tr>
+                        <tr class="header">
+				<th width="125" class="first">Other</th>
+				<th width="575"></th>
+				<th class="lastrow"></th>
+			</tr>
+                        <tr>
+				<td class="firstrow">Date first offered:</td>
+				<td>
+					<input type="text" name="data[start_date]" value="<?=$this->menu['start_date']?>" DISABLED>
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+			<tr>
+				<td class="firstrow">Date end offered:</td>
+				<td>
+					<input type="text" name="data[end_date]" value="<?=$this->menu['end_date']?>" DISABLED>
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+                        <tr>
+				<td class="firstrow"># of Weeks on Menu YTD:</td>
+				<td>
+					<input type="text" name="data[weeks]" value="<?=$this->menu['weeks']?>" DISABLED>
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+                        <tr>
+				<td class="firstrow">Status:</td>
+				<td>
+					<?=$this->formSelect('data[status]', $this->dish['status'], array('id'=>'status'), $this->statuses)?>
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+                        <tr>
+				<td class="firstrow"><input type="submit" value="Save"></td>
+				<td></td>
+				<td class="lastrow"></td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+</form>
+
+<ul class="navigation">
+	<li><a class="btn_back" href="/admin/dishes">Back</a></li>
+	<!--<li><a class="btn_export" href="">Export</a></li>-->
+</ul>
+<div style="clear: both;"></div>
+
+<style>
+	/* ComboBox special overwrites */
+	.ui-button-icon-only .ui-button-text { padding: 0.35em; }
+	.ui-autocomplete-input { padding:0 0 0 0.25em; width:150px!important;}
+	.ui-autocomplete { text-align: left; height: 200px; overflow: auto; width:250px!important; }
+	button.ui-button-icon-only  { height:1.4em; width:2em; top:4px; }
+</style>
+
+<script type="text/javascript">
+    
+    $(document).ready(function() {
+	$("#chef_category_id").combobox();
+        $("#dish_category_id").combobox();
+        $("#food_category_id").combobox();
+        $("#cuisine").combobox();
+    });
+    
+    $(document).ready(function() {
+            $("#mediamanagertable tbody tr:even").addClass("shadeon");
+            $("#mediamanagertable tbody tr:odd").addClass("shadeoff");
+    });
+
+    $(document).ready(function() {
+            $(".date-pick").datepicker();
+
+            $("#mediamanagertable tbody tr:even").addClass("shadeon");
+            $("#mediamanagertable tbody tr:odd").addClass("shadeoff");
+    });
+    
+</script>
+
+<SCRIPT LANGUAGE="JavaScript">
+    
+function popUp(URL) {
+day = new Date();
+id = day.getTime();
+eval("page" + id + " = window.open(URL, '" + id + "', 'toolbar=0,scrollbars=0,location=0,statusbar=0,menubar=0,resizable=0,width=800,height=300,left = 0,top = 0');");
+}
+
+$(document).ready(function() {
+
+	/* This is basic - uses default settings */
+	
+	$("a#single_image").fancybox();
+	
+	/* Using custom settings */
+	
+	$("a#inline").fancybox({
+		'hideOnContentClick': true
+	});
+
+	/* Apply fancybox to multiple items */
+	
+	$("a.group").fancybox({
+		'transitionIn'	:	'elastic',
+		'transitionOut'	:	'elastic',
+		'speedIn'		:	600, 
+		'speedOut'		:	200, 
+		'overlayShow'	:	false
+	});
+	
+});
+$("a.grouped_elements").fancybox();
+</script>

@@ -1,0 +1,70 @@
+
+<style>
+    #mediamanagertable td.cost {color: #FFFFFF;}  
+</style>
+<h2>Sort</h2>
+<ul class="navigation">
+	<li><a class="btn_back" href="/admin/test">Back</a></li>
+</ul>
+<div style="clear: both;"></div>
+<div class="datatable">
+	<table id="mediamanagertable">
+		<thead>  
+			<tr class="header">
+				<th class="first">Bubble sort</th>
+                                <td></td>
+                                <th></th> 
+                                <th></th>
+                                <th class="lastrow"></th>
+			</tr>
+		</thead>            
+                
+		<tbody>                   
+                        <tr class="shadeoff">
+                                <td class="firstrow">Before Bubble sort</td>
+                                <td></td>   
+                                <th></th>
+                                <th></th>
+                                <th class="lastrow"></th>
+                        </tr>
+                        <tr class="shadeon">
+                                <td class="firstrow">
+                                <? foreach($this->before_bubble_sort as $key => $val) { ?>
+                                <?= $val;?> 
+                                <? } ?>
+                                </td>
+                                <td></td>
+                                <th></th>
+                                <th></th>
+                                <th class="lastrow"></th>
+                        </tr>
+                        <tr class="shadeoff">
+                                <td class="firstrow">After Bubble sort</td>
+                                <td></td>
+                                <th></th>
+                                <th></th>
+                                <th class="lastrow"></th>
+                        </tr>
+                        <tr class="shadeon">
+                                <td class="firstrow">
+                                <? foreach($this->after_bubble_sort as $key => $val) { ?>
+                                <?= $val;?> 
+                                <? } ?>      
+                                </td>
+                                <td>                                  
+                                </td>
+                                <th></th>
+                                <th></th>
+                                <th class="lastrow"></th>
+                        </tr>
+                </tbody>
+                <tfoot>
+			<tr class="footer">
+				<td colspan="6"><?=$this->time?></td> 
+			</tr>
+		</tfoot> 
+	</table>
+</div> 
+<ul class="navigation">
+	<li><a class="btn_back" href="/admin/test">Back</a></li>
+</ul>

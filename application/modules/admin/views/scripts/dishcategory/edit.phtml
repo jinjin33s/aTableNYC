@@ -1,0 +1,61 @@
+<h2>Edit Dish</h2>
+<ul class="navigation">
+	<li><a class="btn_back" href="/admin/dishcategory">Back</a></li>
+	<!--<li><a class="btn_export" href="">Export</a></li>-->
+</ul>
+<div style="clear: both;"></div>
+
+<form id="userForm" method="post" action="" enctype="multipart/form-data">
+<input type="hidden" name="id" value="<?=$this->dish['id']?>">
+<div class="datatable">
+	<table id="mediamanagertable">
+		<thead>
+			<tr class="header">
+				<th width="125" class="first"><b><?=$this->dish['name']?></b></th>
+				<th width="575"></th>
+				<th class="lastrow"></th>
+			</tr>
+		</thead>
+		<tfoot>
+			<tr class="footer">
+				<td colspan="4">&nbsp;</td>
+			</tr>
+		</tfoot>
+		<tbody>
+			<tr>
+				<td class="firstrow">Name:</td>
+				<td>
+					<input type="text" size="62" name="data[name]" value="<?=$this->dish['name']?>">
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+			
+			<tr>
+				<td class="firstrow">Status:</td>
+				<td>
+					<?=$this->formSelect('data[status]', $this->dish['status'], array('id'=>'status'), $this->statuses)?>
+				</td>
+				<td class="lastrow"></td>
+			</tr>
+			<tr>
+				<td class="firstrow"><input type="submit" value="Save"></td>
+				<td></td>
+				<td class="lastrow"></td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+</form>
+
+<ul class="navigation">
+	<li><a class="btn_back" href="/admin/dishcategory">Back</a></li>
+	<!--<li><a class="btn_export" href="">Export</a></li>-->
+</ul>
+<div style="clear: both;"></div>
+
+<script type="text/javascript">
+$(document).ready(function() {
+	$("#mediamanagertable tbody tr:even").addClass("shadeon");
+	$("#mediamanagertable tbody tr:odd").addClass("shadeoff");
+});
+</script>

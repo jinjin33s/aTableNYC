@@ -1,0 +1,100 @@
+<script type="text/javascript">
+    
+    function jin() {
+        
+        var inputElements = document.getElementsByTagName("input");
+        
+        for (var i=0; i < inputElements.length; i++) {
+            if (inputElements[i].type == 'text') {
+                inputElements[i].value = '';
+                }
+            }
+            var x = document.getElementById('status')      
+            x.value = ''; 
+            
+            document.foo.submit();
+    }
+
+
+</script>
+<?php
+if ($this->dir == "DESC") $dir = "ASC"; else $dir = "DESC";
+?>
+
+<h2>Ingredients Manager</h2>
+<div style="clear: both;"></div>
+<div align="right"><a href="/admin/ingredient/add">Add Ingredient</a></div>
+<div id="search_wrapper">
+	<div id="searchcopy">
+		<form method="post" name="foo" action="">
+			<p class="row1">
+				<label>Search:</label><input type="text" name="mask" style="margin-right: 18px; width: 180px;" value="<?=$this->mask?>">
+				<label>Status:</label>
+				<?=$this->formSelect('status', $this->status, array('id'=>'status'), array(""=>"View All Statuses")+$this->statuses)?>
+                                <input type="submit" class="submit_btn" value="Search">
+				<input type="checkbox" name="csv" value="1" class="exportcheck" style="width: 15px;"><label>Export</label>
+                        </p>
+                        </br></br></br></br></br>
+                        <input type="button" value="View All" onClick="jin()" />
+			<div style="clear: both;"></div>
+			
+		</form>
+	</div>
+</div>
+
+<div style="clear: both;"></div>
+<?php echo $this->paginationControl($this->list, 'Sliding', 'pagination_control.phtml'); ?>
+
+<div id="results_wrapper">
+	<div class="datatable">
+		<table>
+			<thead>
+				<tr class="header">
+					<th class="first"><th><a href="/admin/ingredient/index/sort/id/dir/<?=$dir?>">Ref#</a></th>
+                                        <th><a href="/admin/ingredient/index/sort/ingredient/dir/<?=$dir?>">Commodity</a></th>
+                                        <th><a href="/admin/ingredient/index/sort/ingredientcategory/dir/<?=$dir?>">Category</a></th>
+					<th><a href="/admin/ingredient/index/sort/variety/dir/<?=$dir?>">Variety</a></th>
+                                        <th><a href="/admin/ingredient/index/sort/ref/dir/<?=$dir?>">Ref</a></th>	
+                                        <th><a href="/admin/ingredient/index/sort/created/dir/<?=$dir?>">Date Added</a></th>
+					<th>Edit</th>
+					<th class="last action">Delete</th>
+				</tr>
+			</thead>
+			<tfoot>
+				<tr>
+					<td colspan="9"></td>
+				</tr>
+			</tfoot>
+			<tbody>
+			<?php
+			$shade = true;
+			foreach($this->list as $key => $val) {
+				if($shade)
+					$class = 'shadeoff';
+				else
+					$class = 'shadeon';
+				$shade = !$shade;
+			?>
+				<tr class="<?=$class?>">
+					<td class="firstrow"><td><a class="blue" href="/admin/ingredient/edit/id/<?=$val['id']?>"><?=sprintf("%04d",$val['id'])?></a></td>
+                                        <td><a class="blue" href="/admin/ingredient/edit/id/<?=$val['id']?>"><?=$val['ingredient']?></a></td>
+					<td><?=$val['ingredientcategory']?></td>
+                                        <td><?=$val['variety']?></td>
+                                        <td><?=$val['ref']?></td>
+                                        <td><?php if($val['created']=="0000-00-00"){echo $val['modified'];}else{echo $val['created'];}?></td>
+                                        <td><a href="/admin/ingredient/edit/id/<?=$val['id']?>" title="Edit" class="btn_edit">Edit</a></td>
+					<td class="lastrow"><a href="/admin/ingredient/delete/id/<?=$val['id']?>" title="Delete" class="btn_delete" onclick="return confirm('You are about to delete an existing ingredient. All dishes that contain this ingredient will be affected. If you do not want this, click cancel.')">Delete</a></td>
+				</tr>
+			<?php
+			}
+			?>
+			</tbody>
+		</table>
+	</div>
+</div>
+
+<script type="text/javascript" charset="utf-8">
+$(document).ready(function() {
+	//$(".date-pick").datepicker();
+});
+</script>
